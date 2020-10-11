@@ -98,7 +98,6 @@ export default {
         this.activeLink = id
         this.$store.commit('setMenuStatus', id)
       }, 100)
-      console.log(id)
     }
   },
   mounted () {

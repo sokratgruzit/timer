@@ -83,29 +83,18 @@ export default {
       routes: [
         {
           id: 1,
-          title: 'features',
+          title: 'Discover',
           route: {
             name: 'Home',
             params: {
               id: this.$route.params.id
             },
-            hash: '#features'
+            hash: '#discover'
           }
         },
         {
           id: 2,
-          title: 'assets',
-          route: {
-            name: 'Home',
-            params: {
-              id: this.$route.params.id
-            },
-            hash: '#assets'
-          }
-        },
-        {
-          id: 3,
-          title: 'reviews',
+          title: 'Reviews',
           route: {
             name: 'Home',
             params: {
@@ -113,16 +102,31 @@ export default {
             },
             hash: '#reviews'
           }
+        },
+        {
+          id: 3,
+          title: 'Answers',
+          name: 'Home',
+          route: {
+            name: 'Home',
+            params: {
+              id: this.$route.params.id
+            },
+            hash: '#faq'
+          }
         }
       ]
     }
   },
   methods: {
-    activeLinkFunc (id) {
-      this.activeLink = id
-    },
     scrollToTop () {
       window.scrollTo(0, 0)
+    },
+    activeLinkFunc (id) {
+      setTimeout(() => {
+        this.activeLink = id
+        this.$store.commit('setMenuStatus', id)
+      }, 100)
     }
   }
 }
@@ -144,14 +148,14 @@ export default {
     color: #060315;
     opacity: .7;
     font-size: 16px;
-    width: 128px;
+    width: 160px;
   }
   .left.btm{
     flex-direction: row;
   }
   .left.btm span{
     color: #060315;
-    margin-left: 90px;
+    margin-left: 60px;
     font-size: 16px;
   }
   .topContainer{
@@ -192,12 +196,12 @@ export default {
     border: 2px solid #060315;
     color: #060315;
   }
+  .btnUp:hover{
+    background: #060315;
+    color: #fff;
+  }
   .aos-animate ~ .btnUpContainer .btnUp{
     transform: scale(1);
-  }
-  .copy{
-    margin-top: 16px;
-    font-size: 14px;
   }
   .secondaryNav a{
     margin-right: 25px;
@@ -267,6 +271,8 @@ export default {
   .nav{
     margin-left: 90px;
     margin-right: auto;
+    display: flex;
+    align-items: center;
   }
   .nav a{
     text-transform: uppercase;

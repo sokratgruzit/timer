@@ -1,13 +1,13 @@
 <template>
-  <div class="container" v-view="visibilityChanged" :id="itemData.id == 1 ? 'discover' : 'discover' + itemData.id" :class="itemData.imgPos" data-aos="fade-up">
+  <div class="container" v-view="visibilityChanged" :id="itemData.id == 1 ? 'discover' : 'discover' + itemData.id" :class="itemData.imgPos">
       <div class="imgContent pT-140">
-        <div class="imgContainer">
+        <div class="imgContainer" data-aos="fade-up">
           <img :src="require(`@/assets/img/${itemData.img}`)" :alt="itemData.title">
         </div>
         <div class="descr">
-          <h2 class="medium font-90" v-html="itemData.title"></h2>
-          <p>{{itemData.text}}</p>
-          <div class="subTxt">{{itemData.text2}}</div>
+          <h2 class="medium font-90" v-html="itemData.title" data-aos="fade-up"></h2>
+          <p data-aos="fade-up" v-html="itemData.text"></p>
+          <div class="subTxt" data-aos="fade-up" v-html="itemData.text2"></div>
         </div>
       </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
-  <div class="container"  id="faq" v-view="visibilityChanged" data-aos="fade-up">
-    <div class="faqContainer pT-140">
+  <div class="container"  id="faq" v-view="visibilityChanged">
+    <div class="faqContainer pT-140" data-aos="fade-up">
       <h3 class="medium font-90">Answers</h3>
       <div class="faqInner">
         <div class="faqItem" v-for="faq in itemData" :key="faq.id" @click="openFaq(faq.id)" :class="activeFaq == faq.id ? 'active' : ''">
