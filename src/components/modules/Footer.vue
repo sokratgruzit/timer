@@ -332,6 +332,7 @@ export default {
   @media (max-width: 1900px){
     .btnUp{
       right: 5px;
+      bottom: 30px;
     }
   }
   /*Ipad Pro 1024*/
