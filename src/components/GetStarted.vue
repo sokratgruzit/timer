@@ -135,7 +135,8 @@ export default {
     border: 1px solid #292929;
   }
   .btnContainer a:hover{
-    border-color: #525252;
+    border-color: #303030;
+    background: #303030;
   }
   .btnContainer a svg{
     margin-right: 16px;

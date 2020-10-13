@@ -99,7 +99,7 @@ export default {
     margin-left: 20px;
   }
   .ttl{
-    transition: .4s ease-in-out;
+    transition: .2s ease-in-out;
     color: #060315;
     font-size: 34px;
     line-height: 40px;
@@ -112,7 +112,7 @@ export default {
     transition: .4s ease-in-out;
   }
   .ttlContainer i path{
-    transition: .4s ease-in-out;
+    transition: .2s ease-in-out;
   }
   .faqItem.active .ttlContainer i{
     transform: rotateZ(180deg) translateY(6px);

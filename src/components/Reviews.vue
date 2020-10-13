@@ -131,11 +131,11 @@ export default {
     height: 45px;
     width: 56px;
     cursor: pointer;
-    transition: .4s ease-in-out;
+    transition: .2s ease-in-out;
     margin-left: 35px;
   }
   .navigationContainer div path{
-    transition: .4s ease-in-out;
+    transition: .2s ease-in-out;
   }
   .navPrev:hover{
     transform: translateX(-8px);

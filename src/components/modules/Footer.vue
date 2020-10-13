@@ -276,7 +276,7 @@ export default {
   }
   .nav a{
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 13px;
     line-height: 24px;
     color: #060315;
     transition: .4s ease-in-out;
@@ -295,7 +295,7 @@ export default {
     transform-origin: left;
     transform: scaleX(0);
   }
-  .nav a:hover:after,.nav a.router-link-active:after{
+  .nav a.router-link-active:after{
     transform: scaleX(1);
   }
   .nav a:hover,.nav a.router-link-active{

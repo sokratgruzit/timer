@@ -160,7 +160,7 @@ export default {
     text-transform: uppercase;
     font-size: 13px;
     color: rgba(255,255,255,.6);
-    transition: .4s ease-in-out;
+    transition: .2s ease-in-out;
     margin-right: 30px;
     position: relative;
   }
@@ -179,7 +179,7 @@ export default {
     transform-origin: left;
     transform: scaleX(0);
   }
-  nav a:hover:after,nav a.active:after{
+  nav a.active:after{
     transform: scaleX(1);
   }
   nav a:hover,nav a.active{
@@ -193,7 +193,7 @@ export default {
     margin-left: auto;
   }
   .dwnlBtn{
-    transition: .4s ease-in-out;
+    transition: .2s ease-in-out;
     height: 52px;
     display: flex;
     align-items: center;
@@ -202,6 +202,9 @@ export default {
     position: relative;
     overflow: hidden;
     background: #0500FF;
+  }
+  .dwnlBtn:active{
+    background: #0400DE;
   }
   .dwnlBtn:hover{
     background: #2C27FF;
@@ -275,7 +278,7 @@ export default {
       position: absolute;
       right: 0px;
       top: 0px;
-      transition: .4s ease-in-out;
+      transition: .2s ease-in-out;
     }
     .fixedMenu{
       position: fixed;
@@ -297,7 +300,7 @@ export default {
     nav{
       flex-direction: column;
       display: flex;
-      transition: .4s ease-in-out;
+      transition: .2s ease-in-out;
       transform: translateY(10px);
       opacity: 0;
     }
