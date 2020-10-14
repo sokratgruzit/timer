@@ -60,9 +60,9 @@ export default {
     }
   },
   methods: {
-    visibilityChanged () {
-      if (this.$route.name !== 'About') {
-        console.log(this.$route.name)
+    visibilityChanged (e) {
+      console.log(e.percentInView)
+      if (this.$route.name !== 'About' && e.percentInView === 1) {
         this.$store.commit('setMenuStatus', 2)
         this.$store.commit('setHeadColor', 0)
       }
