@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     headCol: 0,
-    activeMenu: null,
+    activeMenu: 1,
+    pointer: 'all',
     navMenu: items.navigation,
     imgContainer: items.imgContainer,
     reviews: items.reviews,
@@ -17,6 +18,9 @@ export default new Vuex.Store({
   mutations: {
     setMenuStatus (state, data) {
       state.activeMenu = data
+    },
+    setPointer (state, data) {
+      state.pointer = data
     },
     setHeadColor (state, data1) {
       state.headCol = data1

@@ -1,5 +1,5 @@
 <template>
-  <div class="container"  id="reviews" v-view="visibilityChanged">
+  <div class="container"  id="reviews" v-view="visibilityChanged" ref="reviews">
     <div class="reviewsContainer pT-140" data-aos="fade-up">
       <div class="ttlContainer">
         <h3 class="medium font-90">Reviews</h3>
@@ -62,9 +62,10 @@ export default {
   methods: {
     visibilityChanged (e) {
       console.log(e.percentInView)
-      if (this.$route.name !== 'About' && e.percentInView === 1) {
+      if (e.percentInView === 1) {
         this.$store.commit('setMenuStatus', 2)
         this.$store.commit('setHeadColor', 0)
+        this.$store.commit('setPointer', 'none')
       }
     }
   },

@@ -1,5 +1,5 @@
 <template>
-  <div id="main" class="outer" :class="firstAnimation ? 'animHead' : ''">
+  <div id="discover" class="outer" :class="firstAnimation ? 'animHead' : ''" v-view="visibilityChanged">
     <picture>
       <source media="(max-width: 767px)" srcset="@/assets/img/mainBgMobile.jpg">
       <source media="(max-width: 1023px)" srcset="@/assets/img/mainBgLaptop.jpg">
@@ -34,7 +34,18 @@ export default {
   mounted () {
     setTimeout(() => {
       this.firstAnimation = true
+      this.visibilityChanged()
+      this.headColor()
     }, 500)
+  },
+  methods: {
+    visibilityChanged () {
+      this.$store.commit('setMenuStatus', 1)
+      this.headColor()
+    },
+    headColor () {
+      this.$store.commit('setHeadColor', 1)
+    }
   }
 }
 </script>
@@ -100,10 +111,12 @@ export default {
     opacity: 1;
   }
   .outer{
-    height: 100vh;
-    min-height: 760px;
+    height: 100%;
     padding-top: 100px;
     position: relative;
+    overflow: hidden;
+  }
+  .hooper-slide{
     overflow: hidden;
   }
   .container{

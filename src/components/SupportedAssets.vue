@@ -1,5 +1,5 @@
 <template>
-  <div class="container" id="assets">
+  <div class="container" id="assets" v-view="visibilityChanged">
     <div class="titleContainer pT-140" data-aos="fade-up">
       <h2 class="medium font-72">More than  <span>500 tokens</span> <br>
        & currencies</h2>
@@ -17,6 +17,11 @@ import mainMixin from '@/mixins/main'
 export default {
   mixins: [mainMixin],
   methods: {
+    visibilityChanged (e) {
+      console.log(e.percentInView)
+      this.$store.commit('setMenuStatus', 2)
+      this.$store.commit('setHeadColor', 0)
+    }
   }
 }
 </script>

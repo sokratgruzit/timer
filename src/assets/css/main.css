@@ -74,6 +74,9 @@ button {
 }
 /*Laptop 1440*/
 @media (max-width: 1900px){
+    .pT-140 {
+        padding-top: 90px;
+    }
     .container{
         padding: 0px 80px;
     }

@@ -1,13 +1,13 @@
 <template>
   <div class="container" v-view="visibilityChanged" :id="itemData.id == 1 ? 'discover' : 'discover' + itemData.id" :class="itemData.imgPos">
       <div class="imgContent pT-140">
-        <div class="imgContainer" data-aos="fade-up">
+        <div class="imgContainer">
           <img :src="require(`@/assets/img/${itemData.img}`)" :alt="itemData.title">
         </div>
         <div class="descr">
-          <h2 class="medium font-90" v-html="itemData.title" data-aos="fade-up"></h2>
-          <p data-aos="fade-up" v-html="itemData.text"></p>
-          <div class="subTxt" data-aos="fade-up" v-html="itemData.text2"></div>
+          <h2 class="medium font-90" v-html="itemData.title" ></h2>
+          <p v-html="itemData.text"></p>
+          <div class="subTxt" v-html="itemData.text2"></div>
         </div>
       </div>
   </div>
@@ -26,6 +26,7 @@ export default {
     visibilityChanged () {
       this.$store.commit('setMenuStatus', 1)
       this.headColor()
+      this.$store.commit('setPointer', 'all')
     },
     headColor () {
       this.$store.commit('setHeadColor', 1)
@@ -87,6 +88,14 @@ export default {
   .container.right .imgContent .descr{
     padding-left: 0px;
     padding-right: 20px;
+  }
+  /*Laptop 1440*/
+  @media (max-width: 1900px){
+    p{
+      font-size: 25px;
+      line-height: 35px;
+      margin-bottom: 20px;
+    }
   }
   /*Ipad Pro 1024*/
   @media (max-width: 1365px){
