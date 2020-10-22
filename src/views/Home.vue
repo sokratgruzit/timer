@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="slideContainer" :style="{
-              pointerEvents: $store.state.pointer
+              pointerEvents: $store.state.pointer ? 'all' : 'none'
             }">
       <hooper @slide="checkLastSlide" :vertical="true" style="height: 100vh;outline: none" :itemsToShow="1" :transition="1000">
         <slide>
@@ -57,7 +57,7 @@ export default {
   methods: {
     checkLastSlide (slide) {
       if (this.slide === 3) {
-        this.$store.commit('setPointer', 'none')
+        this.$store.commit('setPointer', false)
       }
       this.slide = slide.currentSlide
     }

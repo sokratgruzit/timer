@@ -65,7 +65,7 @@ export default {
       if (e.percentInView === 1) {
         this.$store.commit('setMenuStatus', 2)
         this.$store.commit('setHeadColor', 0)
-        this.$store.commit('setPointer', 'none')
+        this.$store.commit('setPointer', false)
       }
     }
   },

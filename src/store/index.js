@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     headCol: 0,
     activeMenu: 1,
-    pointer: 'all',
+    pointer: true,
     navMenu: items.navigation,
     imgContainer: items.imgContainer,
     reviews: items.reviews,

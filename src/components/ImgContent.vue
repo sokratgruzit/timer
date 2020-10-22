@@ -23,10 +23,11 @@ export default {
     }
   },
   methods: {
-    visibilityChanged () {
+    visibilityChanged (e) {
       this.$store.commit('setMenuStatus', 1)
       this.headColor()
-      this.$store.commit('setPointer', 'all')
+      console.log(e.percentInView)
+      this.$store.commit('setPointer', true)
     },
     headColor () {
       this.$store.commit('setHeadColor', 1)
