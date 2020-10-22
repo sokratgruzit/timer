@@ -47,6 +47,7 @@ export default {
         this.activeFaq = id
       } else {
         this.activeFaq = null
+        console.log('hi')
       }
     }
   }
