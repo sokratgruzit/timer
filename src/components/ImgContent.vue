@@ -41,6 +41,14 @@ export default {
   .imgContent{
     display: flex;
     width: 100%;
+    transition: .4s ease-in-out;
+    transform: translateY(10px);
+    opacity: 0;
+    transition-delay: .6s;
+  }
+  .is-active .imgContent{
+    transform: translateY(0px);
+    opacity: 1;
   }
   .imgContainer img{
     position: absolute;
@@ -69,19 +77,34 @@ export default {
     color: #ffffff;
     text-align: left;
     margin-bottom: 40px;
+    transition: .4s ease-in-out;
+    transform: translateY(10px);
+    opacity: 0;
+    transition-delay: .7s;
   }
   .subTxt{
     font-size: 20px;
     line-height: 32px;
     color: rgba(255,255,255,.6);
     margin-bottom: 40px;
+    transition: .4s ease-in-out;
+    transform: translateY(10px);
+    opacity: 0;
+    transition-delay: .8s;
   }
   h2{
     color: #3BD065;
     margin-bottom: 30px;
     text-align: center;
+    transition: .4s ease-in-out;
+    transform: translateY(10px);
+    opacity: 0;
+    transition-delay: .6s;
   }
-
+  .is-active h2,.is-active p,.is-active .subTxt{
+    transform: translateY(0px);
+    opacity: 1;
+  }
   .container.right .imgContent{
     flex-direction: row-reverse;
   }
