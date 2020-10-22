@@ -44,7 +44,7 @@ export default {
     transition: .4s ease-in-out;
     transform: translateY(10px);
     opacity: 0;
-    transition-delay: .6s;
+    transition-delay: .8s;
   }
   .is-active .imgContent{
     transform: translateY(0px);
