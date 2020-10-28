@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="$store.state.pointer ? 'scrl' : ''">
+  <div id="app">
     <Header/>
     <router-view/>
     <Footer/>

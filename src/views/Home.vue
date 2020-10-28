@@ -56,8 +56,15 @@ export default {
   },
   methods: {
     checkLastSlide (slide) {
+      if (this.slide === 2) {
+        const body = document.body
+        body.classList.remove('scrl')
+        this.$store.commit('setPointer', true)
+      }
       if (this.slide === 3) {
         this.$store.commit('setPointer', false)
+        const body = document.body
+        body.classList.add('scrl')
       }
       this.slide = slide.currentSlide
     }
