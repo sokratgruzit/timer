@@ -3,7 +3,7 @@
     <div class="slideContainer" :style="{
               pointerEvents: $store.state.pointer ? 'all' : 'none'
             }">
-      <hooper @slide="checkLastSlide" :vertical="true" style="height: 100vh;outline: none" :itemsToShow="1" :transition="1000">
+      <hooper @slide="checkLastSlide" :shortDrag="false" :vertical="true" style="height: 100vh;outline: none" :itemsToShow="1" :transition="1000">
         <slide>
           <MainContainer/>
         </slide>
@@ -41,7 +41,8 @@ export default {
         },
         hash: '#reviews'
       },
-      slide: null
+      slide: null,
+      direction: false
     }
   },
   components: {
@@ -55,18 +56,41 @@ export default {
     GetStarted
   },
   methods: {
+    scrollDirection () {
+      console.log('hi')
+    },
     checkLastSlide (slide) {
+      console.log(this.slide)
+      if (this.slide === 1) {
+        this.$store.commit('setDirection', 0)
+      }
       if (this.slide === 2) {
         const body = document.body
         body.classList.remove('scrl')
         this.$store.commit('setPointer', true)
+        window.scrollTo(0, 0)
+        console.log('==2')
       }
       if (this.slide === 3) {
-        this.$store.commit('setPointer', false)
-        const body = document.body
-        body.classList.add('scrl')
+        // this.$store.commit('setPointer', false)
+        if (this.$store.state.activeDir === 0) {
+          this.$store.commit('setPointer', false)
+          const body = document.body
+          body.classList.add('scrl')
+          console.log('==3')
+          // this.$store.commit('setDirection', 1)
+        } else {
+          const body = document.body
+          setTimeout(() => {
+            body.classList.remove('scrl')
+            this.$store.commit('setPointer', true)
+          }, 1400)
+        }
       }
       this.slide = slide.currentSlide
+    },
+    created () {
+      window.addEventListener('scroll', this.scrollDirection)
     }
   }
 }

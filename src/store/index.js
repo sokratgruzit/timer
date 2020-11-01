@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     headCol: 0,
     activeMenu: 1,
+    activeDir: 0,
     pointer: true,
     navMenu: items.navigation,
     imgContainer: items.imgContainer,
@@ -16,6 +17,9 @@ export default new Vuex.Store({
   getters: {
   },
   mutations: {
+    setDirection (state, data) {
+      state.activeDir = data
+    },
     setMenuStatus (state, data) {
       state.activeMenu = data
     },

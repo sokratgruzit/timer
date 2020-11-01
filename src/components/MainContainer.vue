@@ -41,6 +41,7 @@ export default {
   methods: {
     visibilityChanged () {
       this.$store.commit('setMenuStatus', 1)
+      this.$store.commit('setDirection', 0)
       this.headColor()
     },
     headColor () {
@@ -195,7 +196,7 @@ export default {
       height: auto;
       width: 100%;
       left: 0px;
-      bottom: -14%;
+      bottom: -1%;
     }
     .mainName{
       font-size: 68px;

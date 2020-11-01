@@ -18,8 +18,8 @@ export default {
   mixins: [mainMixin],
   methods: {
     visibilityChanged (e) {
-      console.log(e.percentInView)
       this.$store.commit('setMenuStatus', 2)
+      this.$store.commit('setDirection', 1)
       this.$store.commit('setHeadColor', 0)
     }
   }

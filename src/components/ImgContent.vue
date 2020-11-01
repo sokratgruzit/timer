@@ -26,7 +26,7 @@ export default {
     visibilityChanged (e) {
       this.$store.commit('setMenuStatus', 1)
       this.headColor()
-      console.log(e.percentInView)
+      // console.log(e.percentInView)
       this.$store.commit('setPointer', true)
     },
     headColor () {
@@ -115,6 +115,10 @@ export default {
   }
   /*Laptop 1440*/
   @media (max-width: 1900px){
+    .subTxt{
+      font-size: 18px;
+      line-height: 30px;
+    }
     p{
       font-size: 25px;
       line-height: 35px;
@@ -135,6 +139,11 @@ export default {
   }
   /*Mobile 320*/
   @media (max-width: 767px){
+    p{
+      font-size: 16px;
+      line-height: 26px;
+      margin-bottom: 10px;
+    }
     h2{
       margin-bottom: 15px;
     }
@@ -150,8 +159,8 @@ export default {
       margin-top: 40px;
     }
     .subTxt[data-v-4b9e1266] {
-      font-size: 16px;
-      line-height: 26px;
+      font-size: 14px;
+      line-height: 24px;
     }
   }
 </style>

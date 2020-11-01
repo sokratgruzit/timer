@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     visibilityChanged (e) {
-      console.log(e.percentInView)
+      // console.log(e.percentInView)
       if (e.percentInView === 1) {
         this.$store.commit('setMenuStatus', 2)
         this.$store.commit('setHeadColor', 0)

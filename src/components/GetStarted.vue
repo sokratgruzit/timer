@@ -171,6 +171,7 @@ export default {
     }
     h3,.btnContainer{
       margin-bottom: 40px;
+      text-align: center;
     }
   }
 </style>
