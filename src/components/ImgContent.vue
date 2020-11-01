@@ -139,6 +139,12 @@ export default {
   }
   /*Mobile 320*/
   @media (max-width: 767px){
+    .colPictureTxtVertical .imgContainer{
+      height: 80%;
+    }
+    .colPictureTxtHorizontal .imgContainer{
+      width: 80%;
+    }
     p{
       font-size: 16px;
       line-height: 26px;
