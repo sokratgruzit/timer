@@ -1,14 +1,16 @@
 <template>
-  <div class="container"  id="faq" v-view="visibilityChanged">
-    <div class="faqContainer pT-140" data-aos="fade-up">
-      <h3 class="medium font-90">Answers</h3>
+  <div class="container"  id="faq" data-aos="fade-up" v-view="visibilityChanged">
+    <div class="faqContainer pT-140">
+      <h3 class="medium font-72">Frequently <br>
+        Asked Questions</h3>
       <div class="faqInner">
         <div class="faqItem" v-for="faq in itemData" :key="faq.id" @click="openFaq(faq.id)" :class="activeFaq == faq.id ? 'active' : ''">
           <div class="ttlContainer">
             <div class="ttl">{{faq.question}}</div>
             <i>
-              <svg width="22" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21.9086 16.6913L19.1314 13.9426L12.9469 20.1271L12.9469 0.399902L9.05305 0.399902L9.05305 20.1271L2.86863 13.9426L0.0913696 16.6913L11 27.5999L21.9086 16.6913Z" fill="#060315"/>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="12" y1="8.74229e-08" x2="12" y2="24" stroke="white" stroke-width="4"/>
+                <line x1="24" y1="12" x2="-1.74846e-07" y2="12" stroke="white" stroke-width="4"/>
               </svg>
             </i>
           </div>
@@ -40,28 +42,25 @@ export default {
   methods: {
     visibilityChanged () {
       this.$store.commit('setMenuStatus', 3)
-      this.$store.commit('setHeadColor', 0)
     },
     openFaq: function (id) {
       if (this.activeFaq !== id) {
         this.activeFaq = id
       } else {
         this.activeFaq = null
-        console.log('hi')
       }
+      console.log('hi')
     }
   }
 }
 </script>
 <style scoped>
-  #faq{
-    background: #F0EDF6;
-    padding-bottom: 140px;
+  .faqInner{
+    width: 56%;
   }
   h3{
-    color: #060315;
-    margin-bottom: 65px;
-    text-align: left;
+    color: #fff;
+    margin-bottom: 75px;
   }
   .questionInner{
     padding-top: 25px;
@@ -74,108 +73,85 @@ export default {
     transform: translateY(0px);
   }
   .questionInner p{
-    font-size: 22px;
-    line-height: 32px;
-    color: #060315;
+    font-size: 20px;
+    line-height: 28px;
+    opacity: .8;
+    padding-right: 70px;
   }
   .questionContainer{
     max-height: 0px;
     transition: .4s ease-in-out;
     overflow: hidden;
-    width: 60%;
   }
   .faqItem.active .questionContainer{
     max-height: 800px;
   }
   .faqItem{
-    padding: 15px 0px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding: 25px 0px;
     margin-bottom: 8px;
     cursor: pointer;
-    transition: .4s ease-in-out;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   }
   .ttlContainer{
     display: flex;
-  }
-  .ttlContainer i{
-    margin-left: 20px;
+    justify-content: space-between;
   }
   .ttl{
-    transition: .2s ease-in-out;
-    color: #060315;
-    font-size: 34px;
-    line-height: 40px;
+    font-size: 32px;
+    line-height: 48px;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
+    color: transparent;
   }
   .faqItem.active .ttl,.faqItem:hover .ttl{
-    color: #0500FF;
+    color: #fff;
   }
   .ttlContainer i{
-    margin-top: 6px;
-    transition: .4s ease-in-out;
+    display: flex;
+    align-items: center;
   }
-  .ttlContainer i path{
-    transition: .2s ease-in-out;
+  .ttlContainer i line{
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    transform-origin: center;
   }
-  .faqItem.active .ttlContainer i{
-    transform: rotateZ(180deg) translateY(6px);
-  }
-  .faqItem.active .ttlContainer i path{
-    fill: #0500FF;
+  .faqItem.active .ttlContainer i line:nth-child(1){
+    transform: scaleY(0);
   }
   .container{
     position: relative;
     z-index: 2;
   }
-  /*Ipad Pro 1024*/
-  @media (max-width: 1365px){
-    .ttl{
-      font-size: 25px;
-      line-height: 30px;
-    }
-    .ttl i{
-      margin-top: 0px;
-    }
-    #faq{
-      padding-bottom: 80px;
-    }
-    .questionContainer{
-      width: 100%;
+  #faq{
+    padding-bottom: 160px;
+  }
+  /*Laptop*/
+  @media (max-width: 1900px){
+    .faqInner{
+      width: 76%;
     }
   }
   /*Mobile 320*/
   @media (max-width: 767px){
-    .questionInner{
-      padding-top: 10px;
-    }
     h3{
-      margin-bottom: 16px;
+      margin-bottom: 40px;
     }
     .faqItem{
-      padding: 0px;
-      padding-top: 8px;
+      padding: 15px;
     }
     .ttl{
-      font-size: 20px;
-      line-height: 26px;
+      font-size: 16px;
+      line-height: 20px;
     }
     .questionInner p{
-      font-size: 16px;
-      line-height: 26px;
+      font-size: 13px;
+      line-height: 20px;
     }
     i svg{
       transform: scale(.6);
     }
     .faqItem.active .ttlContainer i {
       transform: rotateZ(180deg) translateY(4px);
-    }
-    .ttlContainer i{
-      margin-top: 0px;
-      height: fit-content;
-    }
-    .ttlContainer{
-      justify-content: space-between;
-    }
-    #faq{
-      padding-bottom: 40px;
     }
   }
 </style>

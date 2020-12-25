@@ -1,197 +1,348 @@
 <template>
-  <div class="container"  id="reviews" v-view="visibilityChanged" ref="reviews">
-    <div class="reviewsContainer pT-140" data-aos="fade-up">
-      <div class="ttlContainer">
-        <h3 class="medium font-90">Reviews</h3>
-        <div class="navigationContainer">
-          <div class="navPrev">
-            <svg width="58" height="44" viewBox="0 0 58 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M23.3911 0.0571289L29.1193 5.64363L16.2308 18.0837L57.3428 18.0837V25.9163L16.2308 25.9163L29.1193 38.3563L23.3911 43.9428L0.657104 22L23.3911 0.0571289Z" fill="#060315"/>
-            </svg>
+  <div class="container" id="community" v-view="visibilityChanged">
+    <div class="inner">
+      <div class="left">
+        <h2 class="font-72" data-aos="fade-up">
+          We believe <br>
+          in the power <br>
+          of community<br>
+        </h2>
+        <p class="descr" data-aos="fade-up">Our goal is to create a product and service
+          that you're satisfied with and use it every day.</p>
+        <div class="btnContainer" data-aos="fade-up">
+          <div class="btn">Leave a review</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="slidersContainer">
+          <div class="sliderInner" data-aos="fade-up">
+            <VueSlickCarousel v-bind="settings" :style="{height: '100%'}">
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">Ovanes</div>
+                </div>
+                <p>Good product. Convenient, fast. Allows you to keep abreast of all the events in the world of cryptology.</p>
+              </div>
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">David</div>
+                </div>
+                <p>It has all the tools you need. Moreover is a very dynamic tool that is constantly being updated and enhanced with features. Blockchain technology is here to stay.
+                  Now you can send crypto coins to any country using Core App.</p>
+              </div>
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">Ovanes</div>
+                </div>
+                <p>Good product. Convenient, fast. Allows you to keep abreast of all the events in the world of cryptology.</p>
+              </div>
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">David</div>
+                </div>
+                <p>It has all the tools you need. Moreover is a very dynamic tool that is constantly being updated and enhanced with features. Blockchain technology is here to stay.
+                  Now you can send crypto coins to any country using Core App.</p>
+              </div>
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">Ovanes</div>
+                </div>
+                <p>Good product. Convenient, fast. Allows you to keep abreast of all the events in the world of cryptology.</p>
+              </div>
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">David</div>
+                </div>
+                <p>It has all the tools you need. Moreover is a very dynamic tool that is constantly being updated and enhanced with features. Blockchain technology is here to stay.
+                  Now you can send crypto coins to any country using Core App.</p>
+              </div>
+            </VueSlickCarousel>
           </div>
-          <div class="navNext">
-            <svg width="58" height="44" viewBox="0 0 58 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M34.6089 0.0571579L28.8806 5.64366L41.7692 18.0837L0.657103 18.0837L0.657104 25.9163L41.7692 25.9163L28.8806 38.3564L34.6089 43.9429L57.3428 22L34.6089 0.0571579Z" fill="#060315"/>
-            </svg>
+          <div class="sliderInner" data-aos="fade-up">
+            <VueSlickCarousel v-bind="settings2" :style="{height: '100%'}">
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">Ovanes</div>
+                </div>
+                <p>Good product. Convenient, fast. Allows you to keep abreast of all the events in the world of cryptology.</p>
+              </div>
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">David</div>
+                </div>
+                <p>It has all the tools you need. Moreover is a very dynamic tool that is constantly being updated and enhanced with features. Blockchain technology is here to stay.
+                  Now you can send crypto coins to any country using Core App.</p>
+              </div>
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">Ovanes</div>
+                </div>
+                <p>Good product. Convenient, fast. Allows you to keep abreast of all the events in the world of cryptology.</p>
+              </div>
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">David</div>
+                </div>
+                <p>It has all the tools you need. Moreover is a very dynamic tool that is constantly being updated and enhanced with features. Blockchain technology is here to stay.
+                  Now you can send crypto coins to any country using Core App.</p>
+              </div>
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">Ovanes</div>
+                </div>
+                <p>Good product. Convenient, fast. Allows you to keep abreast of all the events in the world of cryptology.</p>
+              </div>
+              <div class="review">
+                <div class="review__header">
+                  <a href="##">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="#0084FF"/>
+                      <path d="M15.0168 12.4697H12.8755V20.3142H9.63132V12.4697H8.08838V9.71278H9.63132V7.92876C9.63132 6.65299 10.2373 4.65527 12.9044 4.65527L15.3075 4.66533V7.34136H13.5639C13.2779 7.34136 12.8757 7.48425 12.8757 8.09283V9.71535H15.3002L15.0168 12.4697Z" fill="white"/>
+                    </svg>
+                  </a>
+                  <div class="name">David</div>
+                </div>
+                <p>It has all the tools you need. Moreover is a very dynamic tool that is constantly being updated and enhanced with features. Blockchain technology is here to stay.
+                  Now you can send crypto coins to any country using Core App.</p>
+              </div>
+            </VueSlickCarousel>
           </div>
         </div>
       </div>
-      <swiper
-        ref="mySwiper"
-        :options="swiperOptions"
-      >
-        <swiper-slide
-          v-for="slide in itemData"
-          :key="slide.id"
-        >
-          <div class="review">
-            <p>{{slide.text}}</p>
-            <div class="name">{{slide.name}}</div>
-          </div>
-        </swiper-slide>
-      </swiper>
     </div>
   </div>
 </template>
-
 <script>
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+// optional style for arrows & dots
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
+  components: {
+    VueSlickCarousel
+  },
   props: {
     itemData: {
-      type: Array,
-      require: true
+      type: Array
     }
   },
   data () {
     return {
-      swiperOptions: {
-        speed: 700,
-        loop: true,
-        slidesPerView: 'auto',
-        autoplay: {
-          delay: 2000
-        },
-        navigation: {
-          nextEl: '.navNext',
-          prevEl: '.navPrev'
-        }
+      settings: {
+        arrows: false,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        vertical: true,
+        verticalSwiping: true,
+        autoplay: true,
+        speed: 4000,
+        autoplaySpeed: 4000,
+        cssEase: 'linear',
+        rtl: true,
+        pauseOnHover: false
+      },
+      settings2: {
+        arrows: false,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        vertical: true,
+        verticalSwiping: true,
+        autoplay: true,
+        speed: 4000,
+        autoplaySpeed: 4000,
+        cssEase: 'linear',
+        rtl: false,
+        pauseOnHover: false
       }
     }
   },
   methods: {
-    visibilityChanged (e) {
-      // console.log(e.percentInView)
-      if (e.percentInView === 1) {
-        this.$store.commit('setMenuStatus', 2)
-        this.$store.commit('setHeadColor', 0)
-        this.$store.commit('setPointer', false)
-      }
-    }
-  },
-  computed: {
-    swiper () {
-      return this.$refs.mySwiper.$swiper
+    visibilityChanged () {
+      this.$store.commit('setMenuStatus', 2)
     }
   }
 }
 </script>
 <style scoped>
-  #reviews{
-    background: #EFEDF4;
-    margin-top: 140px;
-    padding-bottom: 160px;
+  .review__header .name{
+    font-size: 15px;
+    opacity: .5;
   }
-  .name{
-    font-size: 20px;
-    text-transform: uppercase;
-    color: #060315;
-    opacity: .7;
+  .review__header a{
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   }
-  p{
-    color: #060315;
-    font-size: 30px;
-    line-height: 40px;
-    width: 80%;
+  .review__header a:hover{
+    opacity: .8;
   }
-  .swiper-container{
-    margin-top: 65px;
+  .review__header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .review p{
+    font-size: 15px;
+    line-height: 24px;
   }
   .review{
-    width: 100%;
-    border-radius: 8px;
+    background: #0D1627;
+    margin-bottom: 30px;
+    padding: 25px;
+    outline: none;
+  }
+  .sliderInner{
+    width: calc(50% - 15px);
+    height: 100%;
+  }
+  .slidersContainer{
+    width: 600px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
     position: relative;
+  }
+  .slidersContainer::after{
+    content: '';
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    top: -10px;
+    left: 0px;
+    height: 200px;
+    background: rgb(3,9,23);
+    background: linear-gradient(357deg, rgba(3,9,23,0) 0%, rgba(3,9,23,1) 100%);
+    pointer-events: none;
+  }
+  .slidersContainer::before{
+    content: '';
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    bottom: -10px;
+    left: 0px;
+    height: 200px;
+    background: rgb(3,9,23);
+    background: linear-gradient(357deg, rgba(3,9,23,1) 0%, rgba(3,9,23,0) 100%);
+    pointer-events: none;
+  }
+  .inner{
+    display: flex;
+    width: 100%;
+  }
+  .left{
+    width: 42%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 230px;
-  }
-  .swiper-slide{
-    width: 100%;
-    padding-right: 30px;
-  }
-  .reviewsContainer{
-    width: 100%;
-  }
-  .ttlContainer{
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  h3{
-    color: #060315;
-    margin-right: 25px;
-  }
-  .navigationContainer{
-    display: flex;
-  }
-  .navigationContainer div{
-    display: flex;
-    align-items: center;
     justify-content: center;
-    height: 45px;
-    width: 56px;
+  }
+  h2{
+    margin-bottom: 40px;
+  }
+  .descr{
+    font-size: 26px;
+    line-height: 36px;
+  }
+  .btn{
+    height: 52px;
+    border: 2px solid #0500FF;
+    font-size: 16px;
+    color: #fff;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    padding: 0px 30px;
     cursor: pointer;
-    transition: .2s ease-in-out;
-    margin-left: 35px;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   }
-  .navigationContainer div path{
-    transition: .2s ease-in-out;
+  .btn:hover{
+    background: #0500FF;
   }
-  .navPrev:hover{
-    transform: translateX(-8px);
+  .btnContainer{
+    display: flex;
+    margin-right: auto;
+    margin-top: 40px;
   }
-  .navNext:hover{
-    transform: translateX(8px);
+  .right{
+    width: 58%;
+    display: flex;
+    justify-content: center;
+    height: 768px;
   }
-  .navigationContainer div:hover path{
-    fill: #0500FF;
-  }
-  /*Ipad Pro 1024*/
-  @media (max-width: 1365px){
-    #reviews{
-      padding-bottom: 80px;
-    }
-    p{
-      font-size: 16px;
-      line-height: 22px;
-    }
-    .review{
-      height: 275px;
-    }
-  }
-  /*Mobile 320*/
-  @media (max-width: 767px){
-    .swiper-container{
-      margin-top: 40px;
-    }
-    p{
-      width: 100%;
-      font-size: 20px;
-      line-height: 26px;
-      margin-bottom: 16px;
-    }
-    .name{
-      font-size: 16px;
-      margin-bottom: 40px;
-    }
-    .swiper-slide{
-      padding-right: 10px;
-    }
-    #reviews{
-      padding-bottom: 0px;
-    }
-    .navigationContainer{
-      transform: scale(.8);
-    }
-    .navigationContainer div{
-      margin-left: 15px;
-    }
-    .ttlContainer{
-      justify-content: space-between;
-    }
-    h3{
-      margin-right: 0px;
+  /*Laptop 1440*/
+  @media (max-width: 1900px){
+    .right{
+      height: 650px;
     }
   }
 </style>

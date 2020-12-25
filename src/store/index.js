@@ -5,29 +5,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    headCol: 0,
-    activeMenu: 1,
-    activeDir: 0,
-    pointer: true,
+    activeMenu: null,
     navMenu: items.navigation,
-    imgContainer: items.imgContainer,
-    reviews: items.reviews,
-    faq: items.faq
+    community: items.community,
+    faq: items.faq,
+    communityNum: 0
   },
   getters: {
   },
   mutations: {
-    setDirection (state, data) {
-      state.activeDir = data
-    },
     setMenuStatus (state, data) {
       state.activeMenu = data
     },
-    setPointer (state, data) {
-      state.pointer = data
-    },
-    setHeadColor (state, data1) {
-      state.headCol = data1
+    setCommunity (state, num) {
+      state.communityNum = num
     }
   },
   actions: {

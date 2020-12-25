@@ -13,7 +13,7 @@
 * {
     font-family: "Lack-Regular";
     font-size: 13px;
-    color: rgba(255,255,255,.6);
+    color: rgba(255,255,255,1);
     text-decoration: none;
     outline-color: none;
     box-sizing: border-box;
@@ -29,7 +29,8 @@ body {
     -moz-text-size-adjust:100%;
     -ms-text-size-adjust:100%;
     text-size-adjust: 100%;
-    background: #060315;
+    /*padding-bottom: 200vh;*/
+    background: #00050F;
     overflow: hidden;
 }
 ul,li,p,img,h1,h2,h3,h4,h5,h6,input,button,nav {
@@ -51,73 +52,78 @@ button {
     cursor: pointer;
     outline: none;
 }
-
-.regular {
-    font-family: "Lack-Regular";
+.font-18{
+    font-size: 18px;
 }
-.medium {
-    font-family: "Lack-Regular";
+.font-72{
+    font-size: 72px;
+    line-height: 80px;
+    color: #fff;
 }
 .container{
     width: 100%;
     max-width: 1920px;
-    padding: 0px 310px;
+    padding: 0px 80px;
     margin: 0px auto;
     display: flex;
 }
-.font-90{
-    font-size: 90px;
-    line-height: 100px;
+.font-72{
+    font-size: 72px;
+    line-height: 80px;
 }
 .pT-140{
     padding-top: 140px;
 }
-.hooper-slide{
-    overflow: hidden;
+.sliderInner .slick-list{
+    height: 100%!important;
 }
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-body:not(.scrl)::-webkit-scrollbar {
-    display: none!important;
-    -ms-overflow-style: none!important;  /* IE and Edge */
-    scrollbar-width: none!important;  /* Firefox */
+#about .hooper-track{
+    transition-delay: .7s!important;
 }
-
-::-webkit-scrollbar {
-    width: 6px;
+#about .hooper-list{
+    overflow: visible;
+}
+#reviews .hooper-slide{
+    height: fit-content!important;
+}
+.community-popup__inner .slick-slide{
+    pointer-events: none;
+}
+.community-popup__inner .slick-slide.slick-active{
+    pointer-events: all;
+}
+/* width */
+*::-webkit-scrollbar {
+    width: 8px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
-    background: #fff;
+*::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background: #0500FF;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
 }
 /*Laptop 1440*/
 @media (max-width: 1900px){
-    .pT-140 {
-        padding-top: 90px;
+    .font-72{
+        font-size: 56px;
+        line-height: 64px;
     }
     .container{
-        padding: 0px 80px;
+        padding: 0px 40px;
     }
 }
 /*Ipad Pro 1024*/
 @media (max-width: 1365px){
     .container{
-        padding: 0px 45px;
+        padding: 0px 75px;
     }
-    .font-90 {
-        font-size: 70px;
-        line-height: 80px;
+    .font-72 {
+        font-size: 46px;
+        line-height: 60px;
     }
     .pT-140 {
         padding-top: 80px;
@@ -125,24 +131,20 @@ body:not(.scrl)::-webkit-scrollbar {
 }
 /*Ipad 768*/
 @media (max-width: 1023px){
+    .font-72 {
+        font-size: 36px;
+        line-height: 50px;
+    }
     .container {
         padding: 0px 25px;
     }
     .pT-140 {
         padding-top: 40px;
     }
-    .font-90 {
-        font-size: 60px;
-        line-height: 70px;
-    }
 }
 /*Mobile 320*/
 @media (max-width: 767px){
     .container{
         padding: 0px 15px;
-    }
-    .font-90 {
-        font-size: 44px;
-        line-height: 50px;
     }
 }
