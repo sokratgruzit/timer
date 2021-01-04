@@ -132,7 +132,7 @@ export default {
       font-size: 140px;
     }
     .communityInner{
-      padding-top: 110px;
+      padding-top: 100px;
     }
   }
 </style>
