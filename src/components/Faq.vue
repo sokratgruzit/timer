@@ -106,6 +106,7 @@ export default {
   }
   .faqItem.active .ttl,.faqItem:hover .ttl{
     color: #fff;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0);
   }
   .ttlContainer i{
     display: flex;
@@ -129,6 +130,12 @@ export default {
   @media (max-width: 1900px){
     .faqInner{
       width: 76%;
+    }
+  }
+  /*Ipad 768*/
+  @media (max-width: 1023px){
+    .faqInner{
+      width: 100%;
     }
   }
   /*Mobile 320*/

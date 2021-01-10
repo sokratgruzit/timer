@@ -1,5 +1,5 @@
 <template>
-  <div :class="activeBurger ? 'activeBurger' : ''">
+  <div :class="activeBurger ? 'activeBurger' : ''" v-if="true">
 <!--    {{$store.state.activeMenu}}-->
     <header :class="firstAnimation ? 'animHead' : ''">
       <router-link
@@ -1059,19 +1059,25 @@ export default {
     text-transform: uppercase;
     margin-bottom: 10px;
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    -webkit-text-stroke: .8px rgba(255, 255, 255, 0);
   }
   nav a:hover{
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
+    -webkit-text-stroke: .8px rgba(255, 255, 255, 1);
     color: transparent;
   }
-  nav a.active,nav a:hover{
+  nav a.active{
     color: #3BD065;
+    -webkit-text-stroke: .8px rgba(255, 255, 255, 0);
   }
   /*Ipad Pro 1024*/
   @media (max-width: 1365px){
   }
   /*Ipad 768*/
   @media (max-width: 1023px){
+    header{
+      width: 180px;
+      padding: 20px;
+    }
   }
   /*Mobile 320*/
   @media (max-width: 767px){

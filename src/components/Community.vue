@@ -1,11 +1,11 @@
 <template>
-  <div class="container" id="explore" data-aos="fade-up" v-view="visibilityChanged">
+  <div class="container" data-aos="fade-up" v-view="visibilityChanged">
     <div class="communityInner">
       <div class="subTtl">
         <i></i>
         What makes our product special
       </div>
-      <div class="linksContainer">
+      <div class="linksContainer" id="explore">
         <div class="link" v-for="link in itemData" :key="link.id" data-aos="fade-up" @click="openPopup(link.id)">
           <div class="txt">{{link.title}}</div>
           <div class="videoContainer">
@@ -103,7 +103,7 @@ export default {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 180px;
+    padding-top: 180px;
   }
   .videoContainer video{
      height: 100%;
@@ -133,6 +133,18 @@ export default {
     }
     .communityInner{
       padding-top: 110px;
+    }
+  }
+  /*Ipad 768*/
+  @media (max-width: 1023px){
+    .link .txt{
+      font-size: 70px;
+    }
+    .link:nth-child(2) {
+      margin-left: 90px;
+    }
+    .link:nth-child(3) {
+      margin-left: 180px;
     }
   }
 </style>

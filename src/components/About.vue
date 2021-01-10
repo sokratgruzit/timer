@@ -12,7 +12,7 @@
         <p data-aos="fade-up">Our platform is universal, which allows it to support all currencies, from popular to the latest, and their list is constantly growing.</p>
       </div>
       <div class="right">
-        <hooper :autoPlay="true" :playSpeed="5000" :transition="1000" :itemsToShow="1" :infiniteScroll="true">
+        <hooper :autoPlay="true" :playSpeed="5000" :transition="0" :itemsToShow="1" :infiniteScroll="true">
           <slide>
             <div class="slideInner">
               <img :src="require(`@/assets/img/crypto/1.png`)" alt="" class="img_1">
@@ -118,10 +118,10 @@ export default {
   .hooper-slide.is-active img{
     transform: translateY(0px);
     opacity: 1;
-    transition-delay: 1.3s;
+    transition-delay: .6s;
   }
   .hooper-slide.is-active .img_1{
-    transition-delay: 1.4s;
+    transition-delay: .7s;
   }
   .hooper{
     height: 100%;
@@ -149,6 +149,24 @@ export default {
     .inner{
       padding-bottom: 100px;
       padding-top: 100px;
+    }
+  }
+  /*Ipad 768*/
+  @media (max-width: 1023px){
+    .inner{
+      flex-direction: column;
+    }
+    .left{
+      width: 100%;
+    }
+    p{
+      font-size: 18px;
+      line-height: 26px;
+      margin-top: 15px;
+    }
+    .right{
+      width: 100%;
+      margin-top: 30px;
     }
   }
 </style>

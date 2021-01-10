@@ -99,9 +99,9 @@ export default {
   .main-video__container{
     position: absolute;
     top: 0%;
-    right: -10%;
-    padding-top: 64%;
-    width: 64%;
+    right: -15%;
+    padding-top: 75%;
+    width: 75%;
     transform: translateY(-40%);
   }
   .main-video__container video{
@@ -209,7 +209,7 @@ export default {
   }
   /*Laptop 1440*/
   @media (max-width: 1900px){
-    .main-video__container[data-v-03ebb270] {
+    .main-video__container {
       right: -15%;
       padding-top: 75%;
       width: 75%;
@@ -233,23 +233,24 @@ export default {
   @media (max-width: 1365px){}
   /*Ipad 768*/
   @media (max-width: 1023px){
-    .left{
-      width: 65%;
+    .main-video__container{
+      right: -38%;
+      padding-top: 130%;
+      width: 130%;
     }
-    .outer{
-      height: 600px;
+    .main-container__header .left {
+      font-size: 13px;
+      line-height: 22px;
     }
-    h1{
-      margin-top: 20px;
-      font-size: 46px;
-      line-height: 60px;
+    .main-container__description p {
+      font-size: 32px;
+      line-height: 40px;
     }
-    .btnContainer a{
-      height: 60px;
-      padding: 0px 15px;
+    .main-container__description h1{
+      font-size: 96px;
     }
-    .btnContainer a svg {
-      margin-right: 10px;
+    .scroll-down{
+      display: none;
     }
   }
   /*Mobile 320*/

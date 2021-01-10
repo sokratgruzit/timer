@@ -268,6 +268,30 @@ export default {
   }
   /*Ipad 768*/
   @media (max-width: 1023px){
+    .container{
+      flex-direction: column;
+      align-items: center;
+    }
+    .nav{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .nav a{
+      margin-right: 0px;
+      margin-top: 15px;
+    }
+    .copyright{
+      margin-right: 0px;
+    }
+    .subscribe-container{
+      margin-left: 0px;
+      margin-top: 30px;
+    }
+    .btnUp{
+      margin-right: auto;
+      margin-top: 30px;
+    }
   }
   /*Mobile 320*/
   @media (max-width: 767px){

@@ -345,4 +345,20 @@ export default {
       height: 650px;
     }
   }
+  /*Ipad 768*/
+  @media (max-width: 1023px){
+    .sliderInner:last-child{
+      display: none;
+    }
+    .sliderInner{
+      width: 100%;
+    }
+    .right{
+      width: 40%;
+      height: 500px;
+    }
+    .left{
+      width: 60%;
+    }
+  }
 </style>
