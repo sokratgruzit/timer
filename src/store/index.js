@@ -9,7 +9,8 @@ export default new Vuex.Store({
     navMenu: items.navigation,
     community: items.community,
     faq: items.faq,
-    communityNum: 0
+    communityNum: 0,
+    statistic: items.statistic
   },
   getters: {
   },

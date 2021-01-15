@@ -3,6 +3,7 @@
     <MainContainer/>
     <Community :itemData="$store.state.community"/>
     <About/>
+    <Statistic :statData="$store.state.statistic"/>
     <Reviews/>
     <Faq :itemData="$store.state.faq"/>
     <CommunityPopup :itemData="$store.state.community"/>
@@ -16,10 +17,12 @@ import CommunityPopup from '@/components/CommunityPopup.vue'
 import About from '@/components/About.vue'
 import Faq from '@/components/Faq.vue'
 import Reviews from '../components/Reviews'
+import Statistic from '../components/Statistic'
 
 export default {
   name: 'Home',
   components: {
+    Statistic,
     Reviews,
     MainContainer,
     Community,

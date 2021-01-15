@@ -38,5 +38,43 @@
       "subTitle": "Core brings a new standard in technology — open and inclusive — to challenge the old and activate a new age of sustainable, globally-distributed innovation.",
       "text": "From the incremental to global, Core improves how we interact, transact,\nand create — and ultimately operate\nas a global society. Core is a blockchain platform built on the groundbreaking Ouroboros proof-of-stake consensus protocol, and developed using the Haskell programming language."
     }
+  ],
+  "statistic": [
+    {
+      "id": 1,
+      "name": "Core Launch"
+    },
+    {
+      "id": 2,
+      "name": "BTT Token <br/> Issuance"
+    },
+    {
+      "id": 3,
+      "name": "uTorrent Client with <br/> BitTorrent Speed support"
+    },
+    {
+      "id": 4,
+      "name": "MainNet <br/> Launch"
+    },
+    {
+      "id": 5,
+      "name": "«BigBang» Air Drop"
+    },
+    {
+      "id": 6,
+      "name": "On-chain/Off-chain <br/> exchange"
+    },
+    {
+      "id": 7,
+      "name": "Wallet Import <br/> and Recovery"
+    },
+    {
+      "id": 8,
+      "name": "Localization <br/> of BitTorrent Speed"
+    },
+    {
+      "id": 9,
+      "name": "«On-demand» AirDrops <br/> to uTorrent users"
+    }
   ]
 }

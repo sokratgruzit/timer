@@ -11,7 +11,10 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import checkView from 'vue-check-view'
 import VueSmoothScroll from 'vue2-smooth-scroll'
+import VueApexCharts from 'vue-apexcharts'
+Vue.use(VueApexCharts)
 
+Vue.component('apexchart', VueApexCharts)
 Vue.use(checkView)
 
 AOS.init()

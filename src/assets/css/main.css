@@ -92,6 +92,21 @@ button {
 .community-popup__inner .slick-slide.slick-active{
     pointer-events: all;
 }
+/*#chart g > path{*/
+/*    stroke: rgba(242,242,242,0);*/
+/*}*/
+.statisctic-slider .swiper-slide.swiper-slide-next ~ .swiper-slide ~ .swiper-slide .chart-container__inner{
+    opacity: 0;
+    transform: scale(.9);
+}
+.statisctic-slider .swiper-slide.swiper-slide-next ~ .swiper-slide ~ .swiper-slide .color{
+    opacity: 0;
+    transform: scale(.8);
+}
+.statisctic-slider .swiper-slide.swiper-slide-next ~ .swiper-slide ~ .swiper-slide .descr{
+    opacity: 0;
+    transform: translateY(10px);
+}
 /* width */
 *::-webkit-scrollbar {
     width: 8px;
