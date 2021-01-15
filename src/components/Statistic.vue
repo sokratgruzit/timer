@@ -34,7 +34,8 @@
             <div class="chart-container">
               <div class="chart-container__left">
                 <div class="chart-container__inner">
-                  <img :src="require(`@/assets/img/chart.jpg`)" alt="" class="chart__img">
+                  <img :src="require(`@/assets/img/chart.png`)" alt="" class="chart__img">
+                  <img :src="require(`@/assets/img/gradientChart.png`)" alt="" class="chart__imgGr">
                   <div id="chart">
                     <apexchart type="radialBar" height="380" :options="chartOptions" :series="series"></apexchart>
                   </div>
@@ -294,6 +295,14 @@ export default {
     height: 100%;
     left: 0px;
     transform: scale(1.2);
+  }
+  .chart__imgGr{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    z-index: 2;
   }
   .chart-container__description .color{
     height: 28px;
