@@ -1,5 +1,6 @@
 <template>
   <div class="body-container">
+    <StartContainer/>
     <MainContainer/>
     <Community :itemData="$store.state.community"/>
     <About/>
@@ -18,10 +19,12 @@ import About from '@/components/About.vue'
 import Faq from '@/components/Faq.vue'
 import Reviews from '../components/Reviews'
 import Statistic from '../components/Statistic'
+import StartContainer from '../components/Start'
 
 export default {
   name: 'Home',
   components: {
+    StartContainer,
     Statistic,
     Reviews,
     MainContainer,
