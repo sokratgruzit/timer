@@ -243,7 +243,7 @@ export default {
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   }
   .slide-nav div:hover path{
-    fill: #3BD065;
+    fill: #ff7152;
   }
   .prev{
     margin-right: 25px;
@@ -317,7 +317,7 @@ export default {
   }
   .chart-container__description .title{
     font-size: 20px;
-    color: #3BD065;
+    color: #ff7152;
     white-space: nowrap;
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     opacity: 1;

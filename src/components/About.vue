@@ -67,7 +67,7 @@ export default {
   }
   h2 span{
     font-size: inherit;
-    color: #3BD065;
+    color: #ff7152;
   }
   .left{
     width: 42%;
