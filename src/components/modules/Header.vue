@@ -213,6 +213,7 @@ export default {
     margin-bottom: 10px;
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     -webkit-text-stroke: .8px rgba(255, 255, 255, 0);
+    text-align: center;
   }
   nav a:hover{
     -webkit-text-stroke: .8px rgba(255, 255, 255, 1);

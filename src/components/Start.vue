@@ -38,7 +38,7 @@
         <video muted loop autoplay class="start-container__video">
           <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
         </video>
-        <img :src="require(`@/assets/img/gradientChart.png`)" alt="" class="start-container__gradient">
+        <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
         <countdown :time="2 * 24 * 60 * 60 * 1000">
           <div class="timer" slot-scope="props">
           <div class="timer-col">
