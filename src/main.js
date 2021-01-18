@@ -12,6 +12,9 @@ import 'aos/dist/aos.css'
 import checkView from 'vue-check-view'
 import VueSmoothScroll from 'vue2-smooth-scroll'
 import VueApexCharts from 'vue-apexcharts'
+import VueCountdown from '@chenfengyuan/vue-countdown'
+
+Vue.component(VueCountdown.name, VueCountdown)
 Vue.use(VueApexCharts)
 
 Vue.component('apexchart', VueApexCharts)

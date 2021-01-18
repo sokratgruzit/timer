@@ -10,7 +10,8 @@ export default new Vuex.Store({
     community: items.community,
     faq: items.faq,
     communityNum: 0,
-    statistic: items.statistic
+    statistic: items.statistic,
+    start: false
   },
   getters: {
   },
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     setCommunity (state, num) {
       state.communityNum = num
+    },
+    setStart (state, test) {
+      state.start = test
     }
   },
   actions: {

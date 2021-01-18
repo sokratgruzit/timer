@@ -9,7 +9,7 @@
     </div>
     <div class="container">
       <div class="main-container__header">
-        <div class="left">Decentralized <br> Blockchain Platform</div>
+        <div class="left" @click="test">Decentralized <br> Blockchain Platform</div>
         <div class="follow-container">
           <div class="ttl">Follow us</div>
           <a href="##">
@@ -63,6 +63,9 @@ export default {
   methods: {
     visibilityChanged () {
       this.$store.commit('setMenuStatus', 0)
+    },
+    test () {
+      this.$store.commit('setStart', true)
     }
   }
 }
