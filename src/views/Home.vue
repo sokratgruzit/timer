@@ -1,6 +1,7 @@
 <template>
   <div class="body-container">
     <StartContainer/>
+    <template v-if="false">
     <MainContainer/>
     <Community :itemData="$store.state.community"/>
     <About/>
@@ -8,6 +9,7 @@
     <Reviews/>
     <Faq :itemData="$store.state.faq"/>
     <CommunityPopup :itemData="$store.state.community"/>
+    </template>
   </div>
 </template>
 

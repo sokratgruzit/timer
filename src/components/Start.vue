@@ -1,5 +1,5 @@
 <template>
-  <div :class="firstAnimation ? 'ready' : ''" class="start-container" v-if="$store.state.start">
+  <div :class="firstAnimation ? 'ready' : ''" class="start-container">
     <div class="start-container__inner">
       <div class="left">
         <a href="##" class="logo">
@@ -39,7 +39,7 @@
           <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
         </video>
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
-        <countdown :time="2 * 24 * 60 * 60 * 1000">
+        <countdown :time="startTime - timeNow">
           <div class="timer" slot-scope="props">
           <div class="timer-col">
             <div class="num">{{props.days}}</div>
@@ -95,19 +95,27 @@ export default {
   name: 'StartContainer',
   data () {
     return {
-      firstAnimation: false
+      firstAnimation: false,
+      timeNow: new Date().getTime(),
+      startTime: new Date('2021-02-01T00:00:00')
     }
   },
   mounted () {
     setTimeout(() => {
       this.firstAnimation = true
     }, 700)
+    console.log(this.timeNow)
+    console.log(this.startTime)
   },
   methods: {
   }
 }
 </script>
 <style scoped>
+  .start-container.ready .logo,.start-container.ready h1,.start-container.ready .description,.start-container.ready .subscribe{
+    opacity: 1;
+    transform: translateX(0px);
+  }
   .copy{
     opacity: .6;
   }
@@ -132,6 +140,12 @@ export default {
     left: 0px;
     width: 100%;
     align-items: center;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    transition-delay: .5s;
+  }
+  .start-container.ready .footer{
+    opacity: 1;
   }
   .share{
     display: flex;
@@ -150,12 +164,19 @@ export default {
   .logo{
     margin-top: 50px;
     margin-bottom: 70px;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    transform: translateY(10px);
   }
   .subscribe{
     display: flex;
     flex-direction: column;
     margin-top: 65px;
     margin-bottom: auto;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    transform: translateY(10px);
+    transition-delay: .3s;
   }
   .subscribe .text{
     font-size: 20px;
@@ -213,6 +234,10 @@ export default {
   .description{
     font-size: 40px;
     line-height: 50px;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    transform: translateY(10px);
+    transition-delay: .2s;
   }
   h1{
     font-size: 96px;
@@ -220,6 +245,9 @@ export default {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
     color: transparent;
     margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition-delay: .1s;
   }
   .start-container__inner{
     max-width: 1920px;
@@ -246,6 +274,14 @@ export default {
     position: relative;
     z-index: 1;
     overflow: hidden;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    transform: scale(.9);
+    transition-delay: .4s;
+  }
+  .start-container.ready .right{
+    opacity: 1;
+    transform: scale(1);
   }
   .timer{
     display: flex;
