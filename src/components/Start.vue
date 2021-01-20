@@ -326,11 +326,15 @@ export default {
     }
     .logo{
       margin-top: 30px;
-      margin-bottom: 40px;
+      margin-bottom: 0px;
+    }
+    .logo svg{
+      transform: scale(.8);
+      transform-origin: top left;
     }
     h1{
-      font-size: 71px;
-      margin-bottom: 20px;
+      font-size: 65px;
+      margin-bottom: 15px;
     }
     .description {
       font-size: 25px;
@@ -406,7 +410,7 @@ export default {
     .start-container__inner{
       flex-direction: column;
     }
-    .logo{
+    .logo svg{
       transform: scale(.7);
       transform-origin: top left;
     }
@@ -433,10 +437,12 @@ export default {
   @media (max-width: 767px){
     .logo{
       margin-top: 15px;
-      transform: scale(.5);
       position: absolute;
       left: -10px;
       top: 0px;
+    }
+    .logo svg{
+      transform: scale(.5);
     }
     .nMob{
       display: none;
