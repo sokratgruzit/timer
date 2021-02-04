@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="right">
-        <video muted loop autoplay playsinline class="start-container__video">
+        <video muted loop autoplay playsinline preload="yes" class="start-container__video" ref="video">
           <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
         </video>
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
@@ -104,8 +104,8 @@ export default {
     setTimeout(() => {
       this.firstAnimation = true
     }, 700)
-    console.log(this.timeNow)
-    console.log(this.startTime)
+    this.$refs.video.load()
+    this.$refs.video.play()
   },
   methods: {
   }
