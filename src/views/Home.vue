@@ -47,4 +47,10 @@ export default {
       padding-left: 180px;
     }
   }
+  /*Mobile*/
+  @media (max-width: 767px){
+    .body-container{
+      padding-left: 0px;
+    }
+  }
 </style>

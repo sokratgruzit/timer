@@ -159,6 +159,9 @@ button {
 }
 /*Mobile 320*/
 @media (max-width: 767px){
+    .body-container{
+        padding-left: 0px;
+    }
     .container{
         padding: 0px 15px;
     }

@@ -483,8 +483,7 @@ export default {
       bottom: 0px;
     }
     .start-container{
-      max-height: 100vh;
-      overflow: auto;
+      position: relative;
     }
     .right{
       height: 40vh;

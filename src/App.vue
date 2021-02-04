@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header/>
+    <Header v-if="false"/>
     <router-view/>
-    <Footer/>
+    <Footer v-if="false"/>
   </div>
 </template>
 
