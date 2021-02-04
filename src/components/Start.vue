@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="right">
-        <video muted loop autoplay class="start-container__video">
+        <video muted loop autoplay playsinline class="start-container__video">
           <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
         </video>
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
@@ -308,6 +308,8 @@ export default {
   .start-container__video{
     position: absolute;
     height: 100%;
+    width: 100%;
+    transform: scale(1.5);
     z-index: 1;
     top: 0px;
   }
@@ -355,14 +357,26 @@ export default {
     .footer{
       padding: 0px 100px;
     }
+    .timer-col .num{
+      font-size: 80px;
+    }
+    .right{
+      width: calc(100% - 400px)
+    }
+    .left{
+      width: 400px;
+    }
   }
   /*Ipad Pro 1024*/
-  @media (max-width: 1365px){
+  @media (max-width: 1200px){
+    .start-container__video{
+      transform: scale(1);
+      width: auto;
+    }
     .right {
       display: flex;
       width: calc(100% - 400px);
-      height: 40%;
-      margin: auto 0px;
+      /*margin: auto 0px;*/
     }
     .left{
       width: 400px;
@@ -381,13 +395,16 @@ export default {
     }
   }
   /*Ipad 768*/
-  @media (max-width: 1023px){
+  @media (max-width: 1024px){
+    .start-container__video{
+      width: auto;
+    }
     .timer-col .num {
       font-size: 45px;
     }
     .right {
       width: 100%;
-      height: 35%;
+      height: 50%;
     }
     .start-container__inner {
       padding: 0px 30px;
@@ -433,8 +450,11 @@ export default {
       padding: 0px 50px;
     }
   }
-  /*Mobile 320*/
+  /*Mobile 375*/
   @media (max-width: 767px){
+    .timer-col{
+      margin: 0px 10px;
+    }
     .logo{
       margin-top: 15px;
       position: absolute;
@@ -472,10 +492,10 @@ export default {
       right: 12px;
     }
     .timer-col .num {
-      font-size: 28px;
+      font-size: 24px;
     }
     .timer-col .desc{
-      font-size: 12px;
+      font-size: 10px;
     }
     .footer{
       position: relative;
@@ -486,7 +506,7 @@ export default {
       position: relative;
     }
     .right{
-      height: 40vh;
+      height: 46vh;
     }
     .nav{
       flex-direction: column;
@@ -504,6 +524,18 @@ export default {
     }
     .share a {
       margin: 0px 8px;
+    }
+    .start-container__video{
+      transform: scale(1.1);
+    }
+    .start-container__gradient{
+      display: none;
+    }
+  }
+  /*Mobile 320*/
+  @media (max-width: 325px){
+    .right {
+      height: 49vh;
     }
   }
 </style>
