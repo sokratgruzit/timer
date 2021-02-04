@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="right">
-        <video muted loop autoplay playsinline preload="yes" class="start-container__video" ref="video">
+        <video muted loop autoplay playsinline preload="yes" class="start-container__video" ref="video" v-if="showVideo">
           <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
         </video>
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
@@ -95,6 +95,7 @@ export default {
   name: 'StartContainer',
   data () {
     return {
+      showVideo: true,
       firstAnimation: false,
       timeNow: new Date().getTime(),
       startTime: new Date('Thu Feb 11 2021 00:00:00 GMT+0100').getTime()
@@ -104,8 +105,6 @@ export default {
     setTimeout(() => {
       this.firstAnimation = true
     }, 700)
-  },
-  methods: {
   }
 }
 </script>
