@@ -108,9 +108,11 @@ export default {
     if (promise !== undefined) {
       promise.catch(error => {
         console.log(error)
-        setTimeout(() => {
-          this.$refs.video.load()
-          this.$refs.video.play()
+        setInterval(() => {
+          if (promise !== undefined) {
+            this.$refs.video.load()
+            this.$refs.video.play()
+          }
         }, 2000)
         // Auto-play was prevented
         // Show a UI element to let the user manually start playback
