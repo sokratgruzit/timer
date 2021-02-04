@@ -36,7 +36,7 @@
       </div>
       <div class="right">
         <video muted loop autoplay playsinline preload="yes" class="start-container__video" ref="video">
-          <source src="@/assets/img/start.mp4" type="video/mp4">
+          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
         </video>
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
         <countdown :time="startTime - timeNow">
