@@ -97,7 +97,7 @@ export default {
     return {
       firstAnimation: false,
       timeNow: new Date().getTime(),
-      startTime: new Date('2021-02-01T00:00:00')
+      startTime: new Date('Thu Feb 11 2021 00:00:00 GMT+0100').getTime()
     }
   },
   mounted () {
