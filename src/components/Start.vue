@@ -104,8 +104,17 @@ export default {
     setTimeout(() => {
       this.firstAnimation = true
     }, 700)
-    this.$refs.video.load()
-    this.$refs.video.play()
+    const promise = this.$refs.video.play()
+    if (promise !== undefined) {
+      promise.catch(error => {
+        console.log(error)
+        // Auto-play was prevented
+        // Show a UI element to let the user manually start playback
+      }).then(() => {
+        this.$refs.video.load()
+        this.$refs.video.play()
+      })
+    }
   },
   methods: {
   }
