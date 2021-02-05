@@ -18,12 +18,16 @@
             </defs>
           </svg>
         </a>
-        <h1>Welcome!</h1>
+        <div class="sub-ttl">Coming soon...</div>
+        <h1>Core</h1>
         <div class="description">
-          Here soon will be a site about the newest product in the world of cryptocurrencies — Core.
+          Cryptographic Object Resource Engine
+        </div>
+        <div class="sub-description">
+          Multi-Chain Framework focused on Interoperability, Scalability and Usability.
         </div>
         <div class="subscribe">
-          <div class="text">Stay up to date on the launch of our project</div>
+          <div class="text">Stay up to date on the project</div>
           <div class="input-container">
             <input type="text" placeholder="myname@example.com">
             <div class="button">
@@ -35,7 +39,7 @@
         </div>
       </div>
       <div class="right">
-        <video muted loop autoplay playsinline preload="yes" class="start-container__video" ref="video" v-if="showVideo">
+        <video muted loop autoplay playsinline preload="yes" class="start-container__video" ref="video">
           <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
         </video>
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
@@ -63,11 +67,11 @@
     </div>
     <div class="footer">
       <div class="copy">© Core App, 2020</div>
-      <div class="nav">
+      <div class="nav" v-if="false">
         <div>Terms of Service</div>
         <div>Privacy</div>
       </div>
-      <div class="share">
+      <div class="share" v-if="false">
         <a href="##" target="_blank">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.5488 20V10.8777H14.6096L15.0688 7.32156H11.5488V5.05147C11.5488 4.0222 11.8335 3.32076 13.3111 3.32076L15.1926 3.31999V0.13923C14.8673 0.0969453 13.7503 0 12.4503 0C9.73573 0 7.87727 1.65697 7.87727 4.69927V7.32156H4.80725V10.8777H7.87727V20H11.5488Z" fill="white"/>
@@ -95,7 +99,6 @@ export default {
   name: 'StartContainer',
   data () {
     return {
-      showVideo: true,
       firstAnimation: false,
       timeNow: new Date().getTime(),
       startTime: new Date('Thu Feb 11 2021 00:00:00 GMT+0100').getTime()
@@ -109,7 +112,7 @@ export default {
 }
 </script>
 <style scoped>
-  .start-container.ready .logo,.start-container.ready h1,.start-container.ready .description,.start-container.ready .subscribe{
+  .start-container.ready .sub-description,.start-container.ready .logo,.start-container.ready .sub-ttl,.start-container.ready h1,.start-container.ready .description,.start-container.ready .subscribe{
     opacity: 1;
     transform: translateX(0px);
   }
@@ -130,10 +133,10 @@ export default {
   }
   .footer{
     display: flex;
-    padding: 0px 150px;
+    padding: 0px 100px;
+    margin-top: 0px;
+    margin-bottom: 50px;
     z-index: 10;
-    position: absolute;
-    bottom: 50px;
     left: 0px;
     width: 100%;
     align-items: center;
@@ -173,7 +176,7 @@ export default {
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     opacity: 0;
     transform: translateY(10px);
-    transition-delay: .3s;
+    transition-delay: .5s;
   }
   .subscribe .text{
     font-size: 20px;
@@ -229,22 +232,39 @@ export default {
     z-index: 2;
   }
   .description{
-    font-size: 40px;
-    line-height: 50px;
+    font-size: 28px;
+    line-height: 40px;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    transform: translateY(10px);
+    transition-delay: .3s;
+  }
+  .sub-description{
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    transform: translateY(10px);
+    transition-delay: .4s;
+    font-size: 20px;
+    margin-top: 20px;
+    color: rgba(255,255,255,.7);
+  }
+  h1{
+    font-size: 200px;
+    line-height: 200px;
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     opacity: 0;
     transform: translateY(10px);
     transition-delay: .2s;
+    color: #FF7152;
+    text-transform: uppercase;
   }
-  h1{
-    font-size: 96px;
-    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
-    color: transparent;
-    margin-bottom: 30px;
+  .sub-ttl{
     opacity: 0;
     transform: translateY(10px);
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    font-size: 16px;
     transition-delay: .1s;
+    text-transform: uppercase;
   }
   .start-container__inner{
     max-width: 1920px;
@@ -252,10 +272,13 @@ export default {
     margin: auto;
     display: flex;
     height: 100%;
+    width: 100%;
   }
   .start-container{
     width: 100%;
-    position: fixed;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     top: 0px;
     left: 0px;
     right: 0px;
@@ -265,6 +288,7 @@ export default {
   }
   .right{
     display: flex;
+    min-height: calc(100vh - 80px);
     width: calc(100% - 600px);
     align-items: center;
     justify-content: center;
@@ -306,7 +330,7 @@ export default {
     position: absolute;
     height: 100%;
     width: 100%;
-    transform: scale(1.5);
+    transform: scale(1.4);
     z-index: 1;
     top: 0px;
   }
@@ -322,6 +346,7 @@ export default {
   @media (max-width: 1900px){
     .start-container__inner{
       padding: 0px 70px;
+      padding-right: 0px;
     }
     .logo{
       margin-top: 30px;
@@ -332,12 +357,16 @@ export default {
       transform-origin: top left;
     }
     h1{
-      font-size: 65px;
-      margin-bottom: 15px;
+      font-size: 130px;
+      line-height: 130px;
+      margin-bottom: 10px;
     }
     .description {
-      font-size: 25px;
-      line-height: 35px;
+      font-size: 20px;
+      line-height: 30px;
+    }
+    .sub-description{
+      font-size: 16px;
     }
     .subscribe{
       margin-top: 30px;
@@ -358,7 +387,8 @@ export default {
       font-size: 80px;
     }
     .right{
-      width: calc(100% - 400px)
+      width: calc(100% - 400px);
+      min-height: calc(100vh - 50px);
     }
     .left{
       width: 400px;
@@ -407,7 +437,8 @@ export default {
       padding: 0px 30px;
     }
     h1{
-      font-size: 50px;
+      font-size: 100px;
+      line-height: 150px;
       margin-top: 0px;
     }
     .description {
@@ -430,6 +461,7 @@ export default {
     }
     .right{
       margin-top: 30px;
+      min-height: 50vh;
     }
     .subscribe{
       margin-bottom: 0px;
@@ -446,9 +478,17 @@ export default {
     .footer {
       padding: 0px 50px;
     }
+    .sub-description{
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
   }
   /*Mobile 375*/
   @media (max-width: 767px){
+    .right{
+      min-height: 46vh;
+    }
     .timer-col{
       margin: 0px 10px;
     }
@@ -469,9 +509,13 @@ export default {
       height: auto;
     }
     h1{
-      margin-top: 75px;
-      font-size: 40px;
+      font-size: 80px;
+      line-height: 80px;
       margin-bottom: 15px;
+    }
+    .sub-ttl{
+      margin-top: 90px;
+      margin-bottom: 10px;
     }
     .description {
       font-size: 16px;
@@ -498,6 +542,7 @@ export default {
       position: relative;
       flex-direction: column;
       bottom: 0px;
+      margin-top: 20px;
     }
     .start-container{
       position: relative;
@@ -523,7 +568,7 @@ export default {
       margin: 0px 8px;
     }
     .start-container__video{
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
     .start-container__gradient{
       display: none;
