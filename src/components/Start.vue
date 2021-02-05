@@ -138,6 +138,7 @@ export default {
     if (promise !== undefined) {
       promise.catch(error => {
         console.log(error)
+        this.videoError = true
         // Auto-play was prevented
         // Show a UI element to let the user manually start playback
       }).then(() => {
