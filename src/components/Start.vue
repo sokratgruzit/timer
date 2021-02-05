@@ -1,5 +1,16 @@
 <template>
   <div :class="firstAnimation ? 'ready' : ''" class="start-container">
+    <div class="success-container" :class="activeSucceessPopup ? 'active' : ''">
+      <div class="success-container__bg" @click="activeSucceessPopup = false"></div>
+      <div class="success-container__inner">
+        <div class="success-container__title">Request has been successfully sent!</div>
+        <div class="success-container__text">We will notify you when the project
+          is launched. Thank you for being with us.</div>
+        <div class="success-container__button-container">
+          <div class="success-container__button" @click="activeSucceessPopup = false">Okay, I'll wait</div>
+        </div>
+      </div>
+    </div>
     <div class="start-container__inner">
       <div class="left">
         <a href="##" class="logo">
@@ -28,13 +39,19 @@
         </div>
         <div class="subscribe">
           <div class="text">Stay up to date on the project</div>
-          <div class="input-container">
-            <input type="text" placeholder="myname@example.com">
-            <div class="button">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.8701 4.5135L11.8866 6.51766L16.3495 10.9805L2.11377 10.9805L2.11377 13.7905L16.3495 13.7905L11.8866 18.2533L13.8701 20.2575L21.7421 12.3855L13.8701 4.5135Z" fill="white"/>
-              </svg>
-            </div>
+          <div class="input-container" :class="!success ? 'error' : ''">
+            <form @submit.prevent="sendEmail">
+              <input type="text" placeholder="myname@example.com" v-model="email" name="message">
+              <div class="button">
+                <div class="button__inner">
+                  <input type="submit">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.8701 4.5135L11.8866 6.51766L16.3495 10.9805L2.11377 10.9805L2.11377 13.7905L16.3495 13.7905L11.8866 18.2533L13.8701 20.2575L21.7421 12.3855L13.8701 4.5135Z" fill="white"/>
+                  </svg>
+                </div>
+              </div>
+            </form>
+            <div class="error-message">The entered email is incorrect</div>
           </div>
         </div>
       </div>
@@ -94,24 +111,165 @@
 </template>
 
 <script>
-
+import emailjs from 'emailjs-com'
 export default {
   name: 'StartContainer',
   data () {
     return {
+      activeSucceessPopup: false,
+      success: true,
+      reg: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
+      email: '',
       firstAnimation: false,
       timeNow: new Date().getTime(),
-      startTime: new Date('Thu Feb 11 2021 00:00:00 GMT+0100').getTime()
+      startTime: new Date('Thu Feb 12 2021 21:00:00 GMT+0100').getTime()
     }
   },
   mounted () {
     setTimeout(() => {
       this.firstAnimation = true
     }, 700)
+  },
+  methods: {
+    isEmailValid: function () {
+      // return (this.email === '') ? '' : (this.reg.test(this.email)) ? this.success = true : this.success = false
+    },
+    sendEmail (e) {
+      if ((this.email === '') ? '' : (this.reg.test(this.email))) {
+        console.log('error')
+        emailjs.sendForm('service_rjdsn6n', 'template_fq13c86', e.target, 'user_0MfvafF7XfG29aOKXSAch', {
+          email: this.email,
+          message: this.email
+        })
+          .then((result) => {
+            this.activeSucceessPopup = true
+            console.log('SUCCESS!', result.status, result.text)
+          }, (error) => {
+            console.log('FAILED...', error)
+          })
+        // Reset form field
+        this.email = ''
+      } else {
+        this.success = false
+        setTimeout(() => {
+          this.success = true
+        }, 5000)
+      }
+      // try {
+      //   emailjs.sendForm('service_rjdsn6n', 'template_dsrp0ao', e.target,
+      //     'user_0MfvafF7XfG29aOKXSAch', {
+      //       email: this.email
+      //     })
+      // } catch (error) {
+      //   console.log({ error })
+      // }
+    }
   }
 }
 </script>
 <style scoped>
+  .success-container.active .success-container__button-container,.success-container.active .success-container__title,.success-container.active .success-container__text{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  .success-container__button-container{
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    transform: translateY(10px);
+    transition-delay: .3s;
+  }
+  .success-container__button:hover{
+    background: #0500FF;
+  }
+  .success-container__button{
+    height: 52px;
+    display: flex;
+    align-items: center;
+    border: 2px solid #0500FF;
+    cursor: pointer;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    padding: 0px 35px;
+    font-size: 16px;
+    margin-top: 100px;
+  }
+  .success-container__text{
+    font-size: 24px;
+    line-height: 34px;
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(255,255,255,.7);
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    transform: translateY(10px);
+    transition-delay: .2s;
+  }
+  .success-container__title{
+    font-size: 56px;
+    line-height: 64px;
+    text-align: center;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    transform: translateY(10px);
+    transition-delay: .1s;
+  }
+  .success-container__inner{
+    width: 660px;
+    height: 550px;
+    background: #010918;
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+  }
+  .success-container__bg{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #00050F;
+    opacity: .4;
+  }
+  .success-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999999;
+    opacity: 0;
+    transition-delay: .6s;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    pointer-events: none;
+  }
+  .success-container.active{
+    opacity: 1;
+    transition-delay: 0s;
+    pointer-events: all;
+  }
+  .error-message{
+    font-size: 13px;
+    color: #FF7152;
+    position: absolute;
+    bottom: -20px;
+    left: 0px;
+    transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .input-container.error input{
+    border-color: #FF7152;
+  }
+  .input-container.error .error-message{
+    opacity: 1;
+  }
   .start-container.ready .sub-description,.start-container.ready .logo,.start-container.ready .sub-ttl,.start-container.ready h1,.start-container.ready .description,.start-container.ready .subscribe{
     opacity: 1;
     transform: translateX(0px);
@@ -134,7 +292,7 @@ export default {
   .footer{
     display: flex;
     padding: 0px 100px;
-    margin-top: 0px;
+    margin-top: 20px;
     margin-bottom: 50px;
     z-index: 10;
     left: 0px;
@@ -183,6 +341,19 @@ export default {
     opacity: .6;
     margin-bottom: 25px;
   }
+  .button__inner{
+    position: relative;
+  }
+  .button__inner input{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+    opacity: 0;
+  }
   .button svg{
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
     cursor: pointer;
@@ -190,10 +361,10 @@ export default {
   .button svg path{
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   }
-  .button svg:hover path{
+  .button input:hover ~ svg path{
     fill: #ff7152;
   }
-  .button svg:hover{
+  .button input:hover ~ svg{
     transform: translateX(5px);
   }
   .input-container .button{
@@ -216,7 +387,7 @@ export default {
     transition: .6s cubic-bezier(0.79, 0.01, 0.15, 0.99);
   }
   input:focus{
-    border-color: #0400DD;
+    border-color: #fff;
   }
   .input-container{
     position: relative;
@@ -344,6 +515,9 @@ export default {
   }
   /*Laptop 1440*/
   @media (max-width: 1900px){
+    .sub-ttl{
+      margin-top: 50px;
+    }
     .start-container__inner{
       padding: 0px 70px;
       padding-right: 0px;
@@ -384,7 +558,7 @@ export default {
       padding: 0px 70px;
     }
     .timer-col .num{
-      font-size: 80px;
+      font-size: 60px;
     }
     .right{
       width: calc(100% - 400px);
@@ -572,6 +746,23 @@ export default {
     }
     .start-container__gradient{
       display: none;
+    }
+    .success-container__title{
+      font-size: 30px;
+      line-height: 40px;
+    }
+    .success-container__inner {
+      width: 320px;
+      height: 300px;
+      padding: 15px;
+    }
+    .success-container__text{
+      font-size: 14px;
+      line-height: 20px;
+      margin-top: 15px;
+    }
+    .success-container__button{
+      margin-top: 50px;
     }
   }
   /*Mobile 320*/
