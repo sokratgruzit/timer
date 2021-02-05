@@ -66,7 +66,7 @@
       </div>
     </div>
     <div class="footer">
-      <div class="copy">© Core App, 2020</div>
+      <div class="copy">© CORE Multi-Chain, 2021</div>
       <div class="nav" v-if="false">
         <div>Terms of Service</div>
         <div>Privacy</div>
