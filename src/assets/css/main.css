@@ -107,6 +107,9 @@ button {
     opacity: 0;
     transform: translateY(10px);
 }
+.vjs-control-text,.vjs-modal-dialog,.vjs-hidden,.vjs-control-bar{
+    display: none!important;
+}
 /* width */
 *::-webkit-scrollbar {
     width: 8px;

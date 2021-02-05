@@ -197,6 +197,13 @@ export default {
 }
 </script>
 <style scoped>
+  .video-js{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+  }
   .success-container.active .success-container__button-container,.success-container.active .success-container__title,.success-container.active .success-container__text{
     opacity: 1;
     transform: translateY(0px);
@@ -554,7 +561,7 @@ export default {
   }
   /*Laptop 1440*/
   @media (max-width: 1900px){
-    .start-container__video{
+    .start-container__video video,img.start-container__video{
       transform: scale(1.3);
     }
     .sub-ttl{
@@ -612,7 +619,7 @@ export default {
   }
   /*Ipad Pro 1024*/
   @media (max-width: 1200px){
-    .start-container__video{
+    .start-container__video video,img.start-container__video{
       transform: scale(1);
       width: auto;
     }
@@ -639,8 +646,9 @@ export default {
   }
   /*Ipad 768*/
   @media (max-width: 1024px){
-    .start-container__video{
-      width: auto;
+    .start-container__video video,img.start-container__video{
+      width: 100%;
+      transform: scale(1.3);
     }
     .timer-col .num {
       font-size: 40px;
@@ -708,6 +716,9 @@ export default {
   }
   /*Mobile 375*/
   @media (max-width: 767px){
+    .start-container__video video, img.start-container__video {
+      transform: scale(1.6);
+    }
     .right{
       min-height: 46vh;
     }
