@@ -619,9 +619,13 @@ export default {
   }
   /*Ipad Pro 1024*/
   @media (max-width: 1200px){
+    .start-container__video{
+      display: flex;
+      justify-content: center;
+    }
     .start-container__video video,img.start-container__video{
       transform: scale(1);
-      width: auto;
+      width: 1500px;
     }
     .right {
       display: flex;
@@ -718,6 +722,7 @@ export default {
   @media (max-width: 767px){
     .start-container__video video, img.start-container__video {
       transform: scale(1.6);
+      width: 375px;
     }
     .right{
       min-height: 46vh;
@@ -802,6 +807,8 @@ export default {
     }
     .start-container__video{
       transform: scale(1.05);
+      display: flex;
+      justify-content: center;
     }
     .start-container__gradient{
       display: none;
