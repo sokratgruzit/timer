@@ -56,12 +56,15 @@
         </div>
       </div>
       <div class="right">
-        <video ref="videoPlayer" autoplay muted loop playsinline :options="videoOptions" class="video-js start-container__video" src="@/assets/img/start.mp4"></video>
+        <video ref="videoPlayer" autoplay muted loop playsinline :options="videoOptions" class="video-js start-container__video">
+          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
+          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">
+        </video>
 <!--        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">-->
-<!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">-->
-<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">&ndash;&gt;-->
-<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.ogv`)" type="video/ogv">&ndash;&gt;-->
-<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">&ndash;&gt;-->
+
+<!--          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">-->
+<!--          <source :src="require(`@/assets/img/start.ogv`)" type="video/ogv">-->
+<!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
 <!--        </video>-->
 <!--        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">-->
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
