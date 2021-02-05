@@ -120,7 +120,7 @@ export default {
   name: 'StartContainer',
   data () {
     return {
-      videoError: false,
+      videoError: true,
       activeSucceessPopup: false,
       success: true,
       reg: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
@@ -138,7 +138,7 @@ export default {
     if (promise !== undefined) {
       promise.catch(error => {
         console.log(error)
-        this.videoError = true
+        this.videoError = false
         // Auto-play was prevented
         // Show a UI element to let the user manually start playback
       }).then(() => {
@@ -516,6 +516,9 @@ export default {
     transform: scale(1.4);
     z-index: 1;
     top: 0px;
+  }
+  img.start-container__video{
+    object-fit: contain;
   }
   .start-container__gradient{
     position: absolute;
