@@ -56,14 +56,14 @@
         </div>
       </div>
       <div class="right">
-<!--        <video ref="videoPlayer" :options="videoOptions" class="video-js start-container__video" :src="require(`@/assets/img/start.mp4`)"></video>-->
-        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">
-          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
-<!--          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">-->
-<!--          <source :src="require(`@/assets/img/start.ogv`)" type="video/ogv">-->
-<!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
-        </video>
-        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">
+        <video ref="videoPlayer" autoplay muted loop :options="videoOptions" class="video-js start-container__video" src="@/assets/img/start.mp4"></video>
+<!--        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">-->
+<!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">-->
+<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">&ndash;&gt;-->
+<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.ogv`)" type="video/ogv">&ndash;&gt;-->
+<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">&ndash;&gt;-->
+<!--        </video>-->
+<!--        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">-->
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
         <countdown :time="startTime - timeNow">
           <div class="timer" slot-scope="props">
@@ -116,15 +116,17 @@
 </template>
 
 <script>
-// import videojs from 'video.js'
+import videojs from 'video.js'
 import emailjs from 'emailjs-com'
 export default {
   name: 'StartContainer',
   data () {
     return {
       videoOptions: {
-        autoplay: true,
-        controls: true
+        autoPlay: true,
+        controls: true,
+        muted: true,
+        loop: true
       },
       player: null,
       videoError: false,
@@ -138,10 +140,9 @@ export default {
     }
   },
   mounted () {
-    // this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady () {
-    //   console.log('onPlayerReady', this)
-    //   this.$refs.videoPlayer.play()
-    // })
+    this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady () {
+      console.log('onPlayerReady', this)
+    })
     setTimeout(() => {
       this.firstAnimation = true
     }, 700)
@@ -186,6 +187,11 @@ export default {
       // } catch (error) {
       //   console.log({ error })
       // }
+    }
+  },
+  beforeDestroy () {
+    if (this.player) {
+      this.player.dispose()
     }
   }
 }
@@ -526,14 +532,14 @@ export default {
     width: 100%;
     z-index: 3;
   }
-  /*.start-container__video video{*/
-  /*  position: absolute;*/
-  /*  height: 100%;*/
-  /*  width: 100%;*/
-  /*  transform: scale(1.4);*/
-  /*  z-index: 1;*/
-  /*  top: 0px;*/
-  /*}*/
+  .start-container__video video{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: scale(1.4);
+    z-index: 1;
+    top: 0px;
+  }
   img.start-container__video{
     object-fit: contain;
     z-index: 1;
@@ -637,11 +643,11 @@ export default {
       width: auto;
     }
     .timer-col .num {
-      font-size: 45px;
+      font-size: 40px;
     }
     .right {
       width: 100%;
-      height: 50%;
+      height: 53%;
     }
     .start-container__inner {
       padding: 0px 30px;
@@ -659,6 +665,12 @@ export default {
       font-size: 13px;
       margin-bottom: 10px;
     }
+    .timer-col .desc {
+      font-size: 13px;
+    }
+    .timer-col{
+      margin: 0px 15px;
+    }
     .left {
       width: 100%;
     }
@@ -671,7 +683,7 @@ export default {
     }
     .right{
       margin-top: 30px;
-      min-height: 50vh;
+      min-height: 53vh;
     }
     .subscribe{
       margin-bottom: 0px;
@@ -700,7 +712,7 @@ export default {
       min-height: 46vh;
     }
     .timer-col{
-      margin: 0px 10px;
+      margin: 0px 7px;
     }
     .logo{
       margin-top: 15px;
