@@ -381,7 +381,7 @@ export default {
       height: 50px;
     }
     .footer{
-      padding: 0px 100px;
+      padding: 0px 70px;
     }
     .timer-col .num{
       font-size: 80px;
