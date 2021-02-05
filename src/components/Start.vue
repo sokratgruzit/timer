@@ -56,7 +56,7 @@
         </div>
       </div>
       <div class="right">
-        <video ref="videoPlayer" autoplay muted loop :options="videoOptions" class="video-js start-container__video" src="@/assets/img/start.mp4"></video>
+        <video ref="videoPlayer" autoplay muted loop playsinline :options="videoOptions" class="video-js start-container__video" src="@/assets/img/start.mp4"></video>
 <!--        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">-->
 <!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">-->
 <!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">&ndash;&gt;-->
@@ -574,10 +574,12 @@ export default {
     .logo{
       margin-top: 30px;
       margin-bottom: 0px;
+      cursor: auto;
     }
     .logo svg{
       transform: scale(.8);
       transform-origin: top left;
+      cursor: pointer;
     }
     h1{
       font-size: 130px;
