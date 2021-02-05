@@ -56,13 +56,14 @@
         </div>
       </div>
       <div class="right">
-        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video" v-if="!videoError">
+<!--        <video ref="videoPlayer" :options="videoOptions" class="video-js start-container__video" :src="require(`@/assets/img/start.mp4`)"></video>-->
+        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">
           <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
 <!--          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">-->
 <!--          <source :src="require(`@/assets/img/start.ogv`)" type="video/ogv">-->
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
         </video>
-        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video" v-if="videoError">
+        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
         <countdown :time="startTime - timeNow">
           <div class="timer" slot-scope="props">
@@ -115,11 +116,17 @@
 </template>
 
 <script>
+// import videojs from 'video.js'
 import emailjs from 'emailjs-com'
 export default {
   name: 'StartContainer',
   data () {
     return {
+      videoOptions: {
+        autoplay: true,
+        controls: true
+      },
+      player: null,
       videoError: false,
       activeSucceessPopup: false,
       success: true,
@@ -127,23 +134,27 @@ export default {
       email: '',
       firstAnimation: false,
       timeNow: new Date().getTime(),
-      startTime: new Date('Thu Feb 12 2021 11:00:00 GMT+0100').getTime()
+      startTime: new Date('Thu Feb 13 2021 00:00:00 GMT+0100').getTime()
     }
   },
   mounted () {
+    // this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady () {
+    //   console.log('onPlayerReady', this)
+    //   this.$refs.videoPlayer.play()
+    // })
     setTimeout(() => {
       this.firstAnimation = true
     }, 700)
-    const promise = this.$refs.video.play()
-    if (promise !== undefined) {
-      promise.catch(error => {
-        console.log(error)
-        this.videoError = true
-        // Auto-play was prevented
-        // Show a UI element to let the user manually start playback
-      }).then(() => {
-      })
-    }
+    // const promise = this.$refs.video.play()
+    // if (promise !== undefined) {
+    //   promise.catch(error => {
+    //     console.log(error)
+    //     this.videoError = true
+    //     // Auto-play was prevented
+    //     // Show a UI element to let the user manually start playback
+    //   }).then(() => {
+    //   })
+    // }
   },
   methods: {
     sendEmail (e) {
@@ -513,17 +524,24 @@ export default {
     position: absolute;
     height: 100%;
     width: 100%;
-    transform: scale(1.4);
-    z-index: 1;
-    top: 0px;
+    z-index: 3;
   }
+  /*.start-container__video video{*/
+  /*  position: absolute;*/
+  /*  height: 100%;*/
+  /*  width: 100%;*/
+  /*  transform: scale(1.4);*/
+  /*  z-index: 1;*/
+  /*  top: 0px;*/
+  /*}*/
   img.start-container__video{
     object-fit: contain;
+    z-index: 1;
   }
   .start-container__gradient{
     position: absolute;
     height: 100%;
-    z-index: 2;
+    z-index: 5;
     top: 0px;
     left: 0px;
     width: 100%;
