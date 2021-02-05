@@ -56,9 +56,13 @@
         </div>
       </div>
       <div class="right">
-        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video" >
+        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video" v-if="!videoError">
           <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
+<!--          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">-->
+<!--          <source :src="require(`@/assets/img/start.ogv`)" type="video/ogv">-->
+<!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
         </video>
+        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video" v-if="videoError">
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
         <countdown :time="startTime - timeNow">
           <div class="timer" slot-scope="props">
@@ -116,24 +120,31 @@ export default {
   name: 'StartContainer',
   data () {
     return {
+      videoError: false,
       activeSucceessPopup: false,
       success: true,
       reg: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
       email: '',
       firstAnimation: false,
       timeNow: new Date().getTime(),
-      startTime: new Date('Thu Feb 12 2021 21:00:00 GMT+0100').getTime()
+      startTime: new Date('Thu Feb 12 2021 11:00:00 GMT+0100').getTime()
     }
   },
   mounted () {
     setTimeout(() => {
       this.firstAnimation = true
     }, 700)
+    const promise = this.$refs.video.play()
+    if (promise !== undefined) {
+      promise.catch(error => {
+        console.log(error)
+        // Auto-play was prevented
+        // Show a UI element to let the user manually start playback
+      }).then(() => {
+      })
+    }
   },
   methods: {
-    isEmailValid: function () {
-      // return (this.email === '') ? '' : (this.reg.test(this.email)) ? this.success = true : this.success = false
-    },
     sendEmail (e) {
       if ((this.email === '') ? '' : (this.reg.test(this.email))) {
         console.log('error')
@@ -515,6 +526,9 @@ export default {
   }
   /*Laptop 1440*/
   @media (max-width: 1900px){
+    .start-container__video{
+      transform: scale(1.3);
+    }
     .sub-ttl{
       margin-top: 50px;
     }
