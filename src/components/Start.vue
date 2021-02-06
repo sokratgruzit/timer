@@ -56,11 +56,11 @@
         </div>
       </div>
       <div class="right">
-        <LazyVideo ref="video" muted :sources="[require(`@/assets/img/start.webm`), require(`@/assets/img/start.mp4`)]" :attrs="{controls: false, playsinline: true, loop: true, autoplay: true,muted: true}"/>
-<!--        <video ref="videoPlayer" autoplay muted loop playsinline :options="videoOptions" class="video-js start-container__video">-->
-<!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
-<!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">-->
-<!--        </video>-->
+<!--        <LazyVideo ref="video" muted :sources="[require(`@/assets/img/start.webm`), require(`@/assets/img/start.mp4`)]" :attrs="{controls: false, playsinline: true, loop: true, autoplay: true,muted: true}"/>-->
+        <video ref="videoPlayer" autoplay muted loop playsinline :options="videoOptions" class="video-js start-container__video">
+          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">
+          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">
+        </video>
 <!--        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">-->
 <!--          <source :src="require(`@/assets/img/start.ogv`)" type="video/ogv">-->
 <!--          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">-->
@@ -119,7 +119,7 @@
 </template>
 
 <script>
-// import videojs from 'video.js'
+import videojs from 'video.js'
 import emailjs from 'emailjs-com'
 export default {
   name: 'StartContainer',
@@ -146,9 +146,9 @@ export default {
     }
   },
   mounted () {
-    // this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady () {
-    //   console.log('onPlayerReady', this)
-    // })
+    this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady () {
+      console.log('onPlayerReady', this)
+    })
     setTimeout(() => {
       this.firstAnimation = true
     }, 700)
