@@ -56,20 +56,20 @@
         </div>
       </div>
       <div class="right">
-        <Canvas-video
-          :src="require(`@/assets/img/start.mp4`)"
-          :autoplay="true"
-        ></Canvas-video>
+<!--        <Canvas-video-->
+<!--          :src="require(`@/assets/img/start.mp4`)"-->
+<!--          :autoplay="true"-->
+<!--        ></Canvas-video>-->
 <!--        <LazyVideo ref="video" muted :sources="[require(`@/assets/img/start.webm`), require(`@/assets/img/start.mp4`)]" :attrs="{controls: false, playsinline: true, loop: true, autoplay: true,muted: true}"/>-->
 <!--        <video ref="videoPlayer" autoplay muted loop playsinline :options="videoOptions" class="video-js start-container__video">-->
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
 <!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">-->
 <!--        </video>-->
-<!--        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">-->
-<!--          <source :src="require(`@/assets/img/start.ogv`)" type="video/ogv">-->
+        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">
+          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
 <!--          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">-->
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
-<!--        </video>-->
+        </video>
 <!--        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">-->
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
         <countdown :time="startTime - timeNow">
