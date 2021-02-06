@@ -65,13 +65,10 @@
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
 <!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">-->
 <!--        </video>-->
-<!--        <video muted loop autoplay playsInline preload="metadata" class="start-container__video" ref="video" v-if="testLink">-->
-<!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">-->
-<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.m3u8`)" type="video/m3u8">&ndash;&gt;-->
-<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">&ndash;&gt;-->
-<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">&ndash;&gt;-->
-<!--        </video>-->
-        <img :src="require(`@/assets/img/start.mp4`)" alt="An explosion of colors.">
+        <video muted loop autoplay playsInline preload="metadata" class="start-container__video" ref="video" v-if="!ios && !safari">
+          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
+        </video>
+        <img :src="require(`@/assets/img/start.mp4`)" class="start-container__video" v-if="ios || safari">
 <!--        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">-->
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
         <countdown :time="startTime - timeNow">
@@ -126,12 +123,14 @@
 
 <script>
 // import videojs from 'video.js'
+import { isSafari, isIOS } from 'mobile-device-detect'
 import emailjs from 'emailjs-com'
 export default {
   name: 'StartContainer',
   data () {
     return {
-      testLink: false,
+      ios: false,
+      safari: false,
       videoOptions: {
         autoPlay: true,
         controls: true,
@@ -153,6 +152,9 @@ export default {
     }
   },
   mounted () {
+    this.ios = isIOS
+    this.safari = isSafari
+    console.log(isSafari + ' ' + isIOS)
     // this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady () {
     //   console.log('onPlayerReady', this)
     // })
@@ -213,6 +215,9 @@ export default {
 }
 </script>
 <style scoped>
+  img.start-container__video{
+    object-fit: contain;
+  }
   .video-js{
     position: absolute;
     top: 0px;
@@ -555,7 +560,7 @@ export default {
     width: 100%;
     z-index: 3;
   }
-  .start-container__video video{
+  .start-container__video{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -563,10 +568,10 @@ export default {
     z-index: 1;
     top: 0px;
   }
-  img.start-container__video{
-    object-fit: contain;
-    z-index: 1;
-  }
+  /*img.start-container__video{*/
+  /*  object-fit: contain;*/
+  /*  z-index: 1;*/
+  /*}*/
   .start-container__gradient{
     position: absolute;
     height: 100%;
@@ -577,7 +582,7 @@ export default {
   }
   /*Laptop 1440*/
   @media (max-width: 1900px){
-    .start-container__video video,img.start-container__video{
+    .start-container__video{
       transform: scale(1.3);
     }
     .sub-ttl{
@@ -641,7 +646,7 @@ export default {
       display: flex;
       justify-content: center;
     }
-    .start-container__video video,img.start-container__video{
+    .start-container__video{
       transform: scale(1);
       width: 1500px;
     }
@@ -668,7 +673,7 @@ export default {
   }
   /*Ipad 768*/
   @media (max-width: 1024px){
-    .start-container__video video,img.start-container__video{
+    .start-container__video{
       width: 100%;
       transform: scale(1.3);
     }
@@ -738,7 +743,7 @@ export default {
   }
   /*Mobile 375*/
   @media (max-width: 767px){
-    .start-container__video video, img.start-container__video {
+    .start-container__video {
       transform: scale(1.6);
       width: 375px;
     }
