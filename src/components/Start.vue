@@ -179,7 +179,7 @@ export default {
     sendEmail (e) {
       if ((this.email === '') ? '' : (this.reg.test(this.email))) {
         console.log('error')
-        emailjs.sendForm('service_rjdsn6n', 'template_fq13c86', e.target, 'user_0MfvafF7XfG29aOKXSAch', {
+        emailjs.sendForm('service_rujm9q4', 'template_cchs8v6', e.target, 'user_Qs2I51OEYXof09TBn8gHY', {
           email: this.email,
           message: this.email
         })
