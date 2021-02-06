@@ -22,6 +22,7 @@
     "vue": "^2.6.12",
     "vue-apexcharts": "^1.6.0",
     "vue-awesome-swiper": "^4.1.1",
+    "vue-canvasvideo": "^1.0.0",
     "vue-check-view": "^0.3.0",
     "vue-lazyload-video": "^0.1.15",
     "vue-observe-visibility": "^0.4.6",

@@ -56,11 +56,15 @@
         </div>
       </div>
       <div class="right">
+        <Canvas-video
+          :src="require(`@/assets/img/start.mp4`)"
+          :autoplay="true"
+        ></Canvas-video>
 <!--        <LazyVideo ref="video" muted :sources="[require(`@/assets/img/start.webm`), require(`@/assets/img/start.mp4`)]" :attrs="{controls: false, playsinline: true, loop: true, autoplay: true,muted: true}"/>-->
-        <video ref="videoPlayer" autoplay muted loop playsinline :options="videoOptions" class="video-js start-container__video">
-          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">
-          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">
-        </video>
+<!--        <video ref="videoPlayer" autoplay muted loop playsinline :options="videoOptions" class="video-js start-container__video">-->
+<!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
+<!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">-->
+<!--        </video>-->
 <!--        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">-->
 <!--          <source :src="require(`@/assets/img/start.ogv`)" type="video/ogv">-->
 <!--          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">-->
@@ -119,10 +123,48 @@
 </template>
 
 <script>
-import videojs from 'video.js'
+// import videojs from 'video.js'
 import emailjs from 'emailjs-com'
 export default {
   name: 'StartContainer',
+  props: {
+    fps: { // frames per second, the playback speed
+      type: Number,
+      default: () => 25
+    },
+    showVideo: { // switch between playback on video or canvas
+      type: Boolean,
+      default: () => false
+    },
+    autoplay: { // automatically play the video
+      type: Boolean,
+      default: () => true
+    },
+    loop: { // loop the video infinitely
+      type: Boolean,
+      default: () => true
+    },
+    playPauseOnClick: { // toggle play/pause on click of video
+      type: Boolean,
+      default: () => false
+    },
+    resetOnLast: { // reset start after complete
+      type: Boolean,
+      default: () => false
+    },
+    cover: { // should the video cover within it's container (useful for backgrounds; cannot be used with 'square' prop)
+      type: Boolean,
+      default: () => false
+    },
+    square: { // should the video be centered vertically in a square container (cannot be used with 'cover' prop)
+      type: Boolean,
+      default: () => false
+    },
+    controls: { // show video playback controls
+      type: Boolean,
+      default: () => false
+    }
+  },
   data () {
     return {
       videoOptions: {
@@ -146,9 +188,9 @@ export default {
     }
   },
   mounted () {
-    this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady () {
-      console.log('onPlayerReady', this)
-    })
+    // this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady () {
+    //   console.log('onPlayerReady', this)
+    // })
     setTimeout(() => {
       this.firstAnimation = true
     }, 700)

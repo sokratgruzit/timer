@@ -14,11 +14,15 @@ import VueSmoothScroll from 'vue2-smooth-scroll'
 import VueApexCharts from 'vue-apexcharts'
 import VueCountdown from '@chenfengyuan/vue-countdown'
 import VueLazyLoadVideo from 'vue-lazyload-video'
+import CanvasVideo from 'vue-canvasvideo'
+import 'vue-canvasvideo/dist/vuecanvasvideo.min.css'
 Vue.component(VueCountdown.name, VueCountdown)
 Vue.use(VueApexCharts)
 Vue.use(VueLazyLoadVideo)
 Vue.component('apexchart', VueApexCharts)
 Vue.use(checkView)
+
+Vue.use(CanvasVideo)
 
 AOS.init()
 
