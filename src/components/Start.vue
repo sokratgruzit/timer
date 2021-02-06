@@ -647,8 +647,8 @@ export default {
       justify-content: center;
     }
     .start-container__video{
-      transform: scale(1);
       width: 1500px;
+      transform: scale(1.8);
     }
     .right {
       display: flex;
