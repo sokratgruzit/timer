@@ -65,7 +65,7 @@
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
 <!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">-->
 <!--        </video>-->
-        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">
+        <video muted loop autoplay playsInline preload="metadata" class="start-container__video" ref="video">
           <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
 <!--          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">-->
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
