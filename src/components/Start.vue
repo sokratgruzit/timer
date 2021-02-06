@@ -829,13 +829,12 @@ export default {
       margin: 0px 8px;
     }
     .start-container__video{
-      transform: scale(1.05);
       display: flex;
       justify-content: center;
     }
-    .start-container__gradient{
-      display: none;
-    }
+    /*.start-container__gradient{*/
+    /*  display: none;*/
+    /*}*/
     .success-container__title{
       font-size: 30px;
       line-height: 40px;
