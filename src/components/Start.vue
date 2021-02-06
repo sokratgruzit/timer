@@ -66,7 +66,7 @@
 <!--          <source :src="require(`@/assets/img/start.ogv`)" type="video/ogv">-->
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
 <!--        </video>-->
-<!--        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">-->
+        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
         <countdown :time="startTime - timeNow">
           <div class="timer" slot-scope="props">
