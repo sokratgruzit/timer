@@ -56,7 +56,7 @@
         </div>
       </div>
       <div class="right">
-        <LazyVideo ref="video" :sources="[require(`@/assets/img/start.webm`), require(`@/assets/img/start.mp4`)]" :attrs="{controls: false, playsinline: true, loop: true, autoplay: true,muted: true}"/>
+        <LazyVideo ref="video" muted :sources="[require(`@/assets/img/start.webm`), require(`@/assets/img/start.mp4`)]" :attrs="{controls: false, playsinline: true, loop: true, autoplay: true,muted: true}"/>
 <!--        <video ref="videoPlayer" autoplay muted loop playsinline :options="videoOptions" class="video-js start-container__video">-->
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
 <!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">-->
