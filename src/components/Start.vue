@@ -57,8 +57,8 @@
       </div>
       <div class="right">
         <video ref="videoPlayer" autoplay muted loop playsinline :options="videoOptions" class="video-js start-container__video">
-          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
           <source :src="require(`@/assets/img/start.webm`)" type="video/webm">
+          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
         </video>
 <!--        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">-->
 
@@ -129,7 +129,10 @@ export default {
         autoPlay: true,
         controls: true,
         muted: true,
-        loop: true
+        loop: true,
+        hls: {
+          withCredentials: true
+        }
       },
       player: null,
       videoError: false,
