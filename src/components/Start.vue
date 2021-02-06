@@ -65,12 +65,13 @@
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
 <!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">-->
 <!--        </video>-->
-        <video muted loop autoplay playsInline preload="metadata" class="start-container__video" ref="video" v-if="testLink">
-          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
-<!--          <source :src="require(`@/assets/img/start.m3u8`)" type="video/m3u8">-->
-<!--          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">-->
-<!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
-        </video>
+<!--        <video muted loop autoplay playsInline preload="metadata" class="start-container__video" ref="video" v-if="testLink">-->
+<!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">-->
+<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.m3u8`)" type="video/m3u8">&ndash;&gt;-->
+<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">&ndash;&gt;-->
+<!--&lt;!&ndash;          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">&ndash;&gt;-->
+<!--        </video>-->
+        <img :src="require(`@/assets/img/start.mp4`)" alt="An explosion of colors.">
 <!--        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">-->
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
         <countdown :time="startTime - timeNow">
