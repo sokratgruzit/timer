@@ -56,15 +56,14 @@
         </div>
       </div>
       <div class="right">
-        <LazyVideo ref="video" :src="require(`@/assets/img/start.mp4`)" :attrs="{controls: false, playsinline: true, loop: true, autoplay: true,muted: true}"/>
+        <LazyVideo ref="video" :sources="[require(`@/assets/img/start.webm`), require(`@/assets/img/start.mp4`)]" :attrs="{controls: false, playsinline: true, loop: true, autoplay: true,muted: true}"/>
 <!--        <video ref="videoPlayer" autoplay muted loop playsinline :options="videoOptions" class="video-js start-container__video">-->
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
 <!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">-->
 <!--        </video>-->
 <!--        <video muted loop autoplay playsInline preload="none" class="start-container__video" ref="video">-->
-
-<!--          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">-->
 <!--          <source :src="require(`@/assets/img/start.ogv`)" type="video/ogv">-->
+<!--          <source :src="require(`@/assets/img/start.m4v`)" type="video/m4v">-->
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
 <!--        </video>-->
 <!--        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">-->
