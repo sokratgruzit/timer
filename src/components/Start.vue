@@ -68,7 +68,11 @@
         <video muted loop autoplay playsInline preload="metadata" class="start-container__video" ref="video" v-if="!ios && !safari">
           <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
         </video>
-        <img :src="require(`@/assets/img/start.mp4`)" class="start-container__video" v-if="ios || safari">
+        <picture>
+          <source :srcset="require(`@/assets/img/start.mp4`)" type="video/mp4">
+          <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video" v-if="ios || safari">
+        </picture>
+<!--        <img  class="start-container__video" v-if="ios || safari">-->
 <!--        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">-->
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
         <countdown :time="startTime - timeNow">
@@ -215,6 +219,13 @@ export default {
 }
 </script>
 <style scoped>
+  picture{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+  }
   img.start-container__video{
     object-fit: contain;
   }
@@ -642,6 +653,9 @@ export default {
   }
   /*Ipad Pro 1024*/
   @media (max-width: 1200px){
+    picture img.start-container__video{
+      width: 100%;
+    }
     .start-container__video{
       display: flex;
       justify-content: center;
@@ -743,6 +757,13 @@ export default {
   }
   /*Mobile 375*/
   @media (max-width: 767px){
+    picture{
+      display: flex;
+      justify-content: center;
+    }
+    picture img.start-container__video[data-v-6fdbaf62] {
+      width: 375px;
+    }
     .start-container__video {
       transform: scale(1.6);
       width: 375px;
