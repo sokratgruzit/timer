@@ -26,6 +26,7 @@
     "vue-browser-detect-plugin": "^0.1.13",
     "vue-canvasvideo": "^1.0.0",
     "vue-check-view": "^0.3.0",
+    "vue-cloudflare-video-player": "0.0.7",
     "vue-device-detector": "^1.1.6",
     "vue-lazyload-video": "^0.1.15",
     "vue-observe-visibility": "^0.4.6",

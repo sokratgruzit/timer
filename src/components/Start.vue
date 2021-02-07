@@ -56,6 +56,7 @@
         </div>
       </div>
       <div class="right">
+        <CloudflareVideoPlayer class="start-container__video" video-id="d006eea5f4b013b10df85d656fd471fa" :autoplay="true" :controls="false" :muted="true" />
 <!--        <Canvas-video-->
 <!--          :src="require(`@/assets/img/start.mp4`)"-->
 <!--          :autoplay="true"-->
@@ -65,9 +66,9 @@
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
 <!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">-->
 <!--        </video>-->
-        <video muted loop autoplay playsInline preload="metadata" class="start-container__video" ref="video" v-if="true">
-          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
-        </video>
+<!--        <video muted loop autoplay playsInline preload="metadata" class="start-container__video" ref="video" v-if="true">-->
+<!--          <source src="https://watch.cloudflarestream.com/d006eea5f4b013b10df85d656fd471fa" type="video/mp4">-->
+<!--        </video>-->
 <!--        <picture>-->
 <!--          <source :srcset="require(`@/assets/img/start.mp4`)" type="video/mp4">-->
 <!--          <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video" v-if="ios || safari">-->
@@ -126,11 +127,15 @@
 </template>
 
 <script>
+import CloudflareVideoPlayer from 'vue-cloudflare-video-player'
 // import videojs from 'video.js'
 import { isSafari, isIOS } from 'mobile-device-detect'
 import emailjs from 'emailjs-com'
 export default {
   name: 'StartContainer',
+  components: {
+    CloudflareVideoPlayer
+  },
   data () {
     return {
       ios: false,
