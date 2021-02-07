@@ -56,7 +56,7 @@
         </div>
       </div>
       <div class="right">
-        <CloudflareVideoPlayer class="start-container__video" video-id="d006eea5f4b013b10df85d656fd471fa" :autoplay="true" :controls="false" :muted="true" />
+        <div class="start-container__video"><iframe src="https://iframe.videodelivery.net/d006eea5f4b013b10df85d656fd471fa?muted=true&loop=true&autoplay=true&controls=false" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;"  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe></div>
 <!--        <Canvas-video-->
 <!--          :src="require(`@/assets/img/start.mp4`)"-->
 <!--          :autoplay="true"-->
@@ -127,15 +127,11 @@
 </template>
 
 <script>
-import CloudflareVideoPlayer from 'vue-cloudflare-video-player'
 // import videojs from 'video.js'
 import { isSafari, isIOS } from 'mobile-device-detect'
 import emailjs from 'emailjs-com'
 export default {
   name: 'StartContainer',
-  components: {
-    CloudflareVideoPlayer
-  },
   data () {
     return {
       ios: false,
