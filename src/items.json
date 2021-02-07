@@ -2,7 +2,7 @@
   "faq": [
     {
       "id": 1,
-      "question": "How do I install Unium App?",
+      "question": "How do I install Core App?",
       "answer": "The 12 words (your “seed” or secret recovery phrase) are your master seed that generates all your wallet’s addresses and private keys. In other words, with this secret phrase, ANYONE can access your wallet’s funds anytime and anywhere from Unium or another wallet. <br><br> For this reason, do not store your secret 12-word phrase in any digital format, such as a screenshot or picture on your phone, a document on your computer, USB drive, or in the cloud (e.g. Dropbox), an email, etc.<br> <br>Hackers can access digital files and information, but they can’t access an old-fashioned piece\nof paper!"
     },
     {

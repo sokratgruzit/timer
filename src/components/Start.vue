@@ -65,13 +65,13 @@
 <!--          <source :src="require(`@/assets/img/start.webm`)" type="video/webm">-->
 <!--          <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4; codecs='avc1.42E01E, mp4a.40.2'">-->
 <!--        </video>-->
-        <video muted loop autoplay playsInline preload="metadata" class="start-container__video" ref="video" v-if="!ios && !safari">
+        <video muted loop autoplay playsInline preload="metadata" class="start-container__video" ref="video" v-if="true">
           <source :src="require(`@/assets/img/start.mp4`)" type="video/mp4">
         </video>
-        <picture>
-          <source :srcset="require(`@/assets/img/start.mp4`)" type="video/mp4">
-          <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video" v-if="ios || safari">
-        </picture>
+<!--        <picture>-->
+<!--          <source :srcset="require(`@/assets/img/start.mp4`)" type="video/mp4">-->
+<!--          <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video" v-if="ios || safari">-->
+<!--        </picture>-->
 <!--        <img  class="start-container__video" v-if="ios || safari">-->
 <!--        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">-->
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
