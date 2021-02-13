@@ -81,7 +81,7 @@ export default {
       // }
     },
     closeStep () {
-      localStorage.core = true
+      // localStorage.core = true
       this.activeFirst = false
     }
   },
@@ -89,8 +89,8 @@ export default {
     setTimeout(() => {
       this.animate = true
     }, 700)
+    this.activeFirst = true
     if (localStorage.core === undefined) {
-      this.activeFirst = true
     } else {
       console.log(JSON.parse(localStorage.core))
     }

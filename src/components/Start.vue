@@ -28,7 +28,7 @@
         </div>
         <div class="subscribe">
           <div class="text">Stay up to date on the project</div>
-          <div class="input-container" :class="!success ? 'error' : ''">
+          <div class="input-container" :class="!success ? 'error' : ''" v-if="false">
             <form @submit.prevent="sendEmail">
               <input type="text" placeholder="myname@example.com" v-model="email" name="message">
               <div class="button">
