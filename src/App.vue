@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <FirstStep/>
+    <EmailPopup/>
     <Header v-if="false"/>
     <router-view/>
     <Footer v-if="false"/>
@@ -9,11 +11,15 @@
 <script>
 import Header from './components/modules/Header'
 import Footer from './components/modules/Footer'
+import FirstStep from './components/FirstStep'
+import EmailPopup from './components/EmailPopup'
 
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    EmailPopup,
+    FirstStep
   }
 }
 </script>

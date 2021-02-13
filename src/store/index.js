@@ -11,7 +11,8 @@ export default new Vuex.Store({
     faq: items.faq,
     communityNum: 0,
     statistic: items.statistic,
-    start: false
+    start: false,
+    success: false
   },
   getters: {
   },
@@ -24,6 +25,9 @@ export default new Vuex.Store({
     },
     setStart (state, test) {
       state.start = test
+    },
+    setSuccess (state, success) {
+      state.success = success
     }
   },
   actions: {

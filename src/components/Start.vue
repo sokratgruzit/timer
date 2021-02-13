@@ -1,16 +1,5 @@
 <template>
   <div :class="firstAnimation ? 'ready' : ''" class="start-container">
-    <div class="success-container" :class="activeSucceessPopup ? 'active' : ''">
-      <div class="success-container__bg" @click="activeSucceessPopup = false"></div>
-      <div class="success-container__inner">
-        <div class="success-container__title">Request has been successfully sent!</div>
-        <div class="success-container__text">We will notify you when the project
-          is launched. Thank you for being with us.</div>
-        <div class="success-container__button-container">
-          <div class="success-container__button" @click="activeSucceessPopup = false">Okay, I'll wait</div>
-        </div>
-      </div>
-    </div>
     <div class="start-container__inner">
       <div class="left">
         <a href="##" class="logo">
@@ -76,7 +65,7 @@
 <!--        <img  class="start-container__video" v-if="ios || safari">-->
 <!--        <img :src="require(`@/assets/img/start.jpg`)" alt="" class="start-container__video">-->
         <img :src="require(`@/assets/img/gradStart.png`)" alt="" class="start-container__gradient">
-        <countdown :time="startTime - timeNow">
+        <countdown :time="startTime - timeNow" v-if="false">
           <div class="timer" slot-scope="props">
           <div class="timer-col">
             <div class="num">{{props.days}}</div>
@@ -153,7 +142,7 @@ export default {
       email: '',
       firstAnimation: false,
       timeNow: new Date().getTime(),
-      startTime: new Date('Thu Feb 13 2021 00:00:00 GMT+0100').getTime()
+      startTime: new Date('Thu Feb 14 2021 14:00:00 GMT+0100').getTime()
     }
   },
   mounted () {
@@ -189,7 +178,7 @@ export default {
           message: this.email
         })
           .then((result) => {
-            this.activeSucceessPopup = true
+            this.$store.commit('setSuccess', true)
             console.log('SUCCESS!', result.status, result.text)
           }, (error) => {
             console.log('FAILED...', error)
